@@ -20,4 +20,4 @@ a reminder that will be sent to all the employees informing them to nominate eac
 
 6.The communications team will send a message to the all the employees showing the people with the highest nominations (base notification). 
 
-7.A notification will be sent to all the employee showing all the winners (base notification). 
+7.A notification will be sent to all the employee showing all the winners (base notification)..
