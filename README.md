@@ -23,7 +23,7 @@ Base notification is the basic notification that will be used to send messages t
 - Birthday
 - Awards
 - Invitations/Events
-- Newborns
+- Newborn babies
 
 **Base Notification Flow Diagram** - 
 
