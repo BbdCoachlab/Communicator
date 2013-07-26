@@ -75,4 +75,4 @@ a reminder that will be sent to all the employees informing them to nominate eac
 
 process flow
 
-![](C:\Users\bbdnet1176\Desktop\Communicator\activityone.png)
+![](activityone.png)
