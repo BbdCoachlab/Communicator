@@ -19,5 +19,5 @@ Base notification is the basic notification that will be used to send messages t
 
 ##Event Invites##
  
-![Events Sequence Diagram](eventsequence.png)
+![Events Sequence Diagram](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png)
 
