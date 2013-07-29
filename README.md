@@ -2,7 +2,7 @@ Communicator
 ============
 
 Internal tool for BBD staff communication
-
+ 
  
 
 #######Awards 
@@ -20,8 +20,27 @@ a reminder that will be sent to all the employees informing them to nominate eac
 
 6.The communications team will send a message to the all the employees showing the people with the highest nominations (base notification). 
 
-7.A notification will be sent to all the employee showing all the winners (base notification)..
+7.A notification will be sent to all the employee showing all the winners (base notification).
 
-process flow
+process flows for the nominations/awards
 
-![](C:\Users\bbdnet1176\Desktop\Communicator\activityone.png)
+
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374850259/NominationsPartB_c56pwz.jpg)
+
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374917509/nma_dwpq5t.jpg)
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+    
