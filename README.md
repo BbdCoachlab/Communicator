@@ -1,7 +1,33 @@
 Communicator
 ============
 Internal tool for BBD staff communication
-##Web application####
+##Base Notification##
+
+Base notification is the basic notification that will be used to send messages to the employees on the proposed mobile application. This type of notification uses a push technology. That is, it will use an internet-based communication which is initiated by the publisher(or a central server). The proposed attributes for the base notification are:
+
+- Message
+- Image
+- Subject
+
+**Message** - The message contains the actual text of the notification. For example if the base notification is a birthday message the the message might be:
+> ''happy birthday XXXXX'' 
+
+**Image** - The image is the image of the notification. For example, if the notification is a birthday message then the image might be an image of a cake.
+
+![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
+
+**Subject** - This attribute will contain the subject of the message/notification that is being sent. For example the Communications or HR team will choose from the following Subject options: 
+
+- Birthday
+- Awards
+- Invitations/Events
+- Newborn babies
+
+**Base Notification Flow Diagram** - 
+
+![Base Flow Diagram](http://res.cloudinary.com/bandilecloud/image/upload/v1375249651/BaseNoteFlow_ap2hlt.png)
+
+##Web application##
 
 ####Overview of login function:###
 
@@ -25,20 +51,6 @@ These questions are:
 Users will give feedback to any of the questions listed above from within the app.
 	
 Events may be sent to all employees or just to specific teams.
-	
-	
-	
-
-##Base Notification##
-Base notification is the basic notification that will be used to send messages to the employees on the proposed mobile application. This type of notification uses a push technology. That is, it will use an internet-based communication which is initiated by the publisher(or a central server). The proposed attributes for the base notification are: image, subject and message.
-
-**Message** - The message contains the actual text of the notification. For example if the base notification is a birthday message the the message might be:
-> ''happy birthday XXXXX'' 
-
-
-**Image** - The image is the image of the notification. For example, if the notification is a birthday message then the image might be an image of a cake.
-
-![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
 
 ##Event Invites##
  
@@ -63,4 +75,4 @@ a reminder that will be sent to all the employees informing them to nominate eac
 
 process flow
 
-![](C:\Users\bbdnet1176\Desktop\Communicator\activityone.png)
+![](activityone.png)
