@@ -25,7 +25,7 @@ Base notification is the basic notification that will be used to send messages t
 
 **Base Notification Flow Diagram** - 
 
-![Base Flow Diagram](BaseNoteFlow.png)
+![Base Flow Diagram](http://res.cloudinary.com/bandilecloud/image/upload/v1375249651/BaseNoteFlow_ap2hlt.png)
 
 ##Web application##
 
