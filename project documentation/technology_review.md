@@ -80,7 +80,9 @@ The advantages and disadvantages of developing the app natively for each platfor
 
 ##Conclusion##
 Each of the above technologies has been crudely given suitability scores out of a total of 6. One point is awarded for each platform the technology can produce an app for, push notifications and accessing the calendar. The scores for each technology can be viewed in the table below.
+
 ![suitability scores](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1375455151/table_bapel9.png)
+
 Using the suitability scores, we have two options using PhoneGap and Going Native. If PhoneGap is used we will not be able to implement adding reminders on the device's calendar. If Going Native is chosen the app cannot be developed for iOS. However, the removal of the calendar function is more acceptable than not having an app for the iOS platform. Therefore, PhoneGap will be used to develop the apps for the targeted platforms.
 
 ##References##
