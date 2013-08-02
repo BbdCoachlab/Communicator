@@ -35,6 +35,7 @@ Base notification is the basic notification that will be used to send messages t
 
 
 **Image** - The image is the image of the notification. For example, if the notification is a birthday message then the image might be an image of a cake.
+
 ![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
 
 ###Awards/Nomination function###
