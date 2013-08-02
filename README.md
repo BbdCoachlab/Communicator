@@ -28,7 +28,11 @@ Events may be sent to all employees or just to specific teams. Below is the sequ
 ![Events Sequence Diagram](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png)
 
 ###Base Notification###
-Base notification is the basic notification that will be used to send messages to the employees on the proposed mobile application. This type of notification uses a push technology. That is, it will use an internet-based communication which is initiated by the publisher(or a central server). The proposed attributes for the base notification are: image, subject and message.
+Base notification is the basic notification that will be used to send messages to the employees on the proposed mobile application. This type of notification uses a push technology. That is, it will use an internet-based communication which is initiated by the publisher(or a central server). The proposed attributes for the base notification are:
+
+- Message
+- Image
+- Subject
 
 **Message** - The message contains the actual text of the notification. For example if the base notification is a birthday message the the message might be:
 > ''happy birthday XXXXX'' 
@@ -38,11 +42,25 @@ Base notification is the basic notification that will be used to send messages t
 
 ![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
 
+**Subject** - This attribute will contain the subject of the message/notification that is being sent. For example the Communications or HR team will choose from the following Subject options: 
+
+
+
+- Birthday
+- Awards
+- Invitations/Events
+- Newborn babies
+
+**Base Notification Flow Diagram** - 
+
+![Base Flow Diagram](http://res.cloudinary.com/bandilecloud/image/upload/v1375249651/BaseNoteFlow_ap2hlt.png)
+
+
 ###Awards/Nomination function###
 
 1.A communication employee logs into the webApp and sends
 a reminder that will be sent to all the employees informing them to nominate each other (base notification). 
- 
+
 2.The application will display a list of employees name, surname and their picture.
 
 3.From that list,an employee will be able to select who they want to nominate.
@@ -53,11 +71,18 @@ a reminder that will be sent to all the employees informing them to nominate eac
 
 6.The communications team will send a message to the all the employees showing the people with the highest nominations (base notification). 
 
-7.A notification will be sent to all the employee showing all the winners (base notification)..
+7.A notification will be sent to all the employee showing all the winners (base notification).
 
-process flow
+process flows for the nominations/awards
+ 
 
-![](C:\Users\bbdnet1176\Desktop\Communicator\activityone.png)
+Step 1  
 
-###Web App###
-The web app will allow employees from the COMS/HR department to send birthday notifications, remianders for nominations and invitations to events.
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374917509/nma_dwpq5t.jpg)
+
+Step 2 
+
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374849966/55_i5movm.jpg)
+
+
+
