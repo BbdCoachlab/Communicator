@@ -2,7 +2,7 @@ Communicator
 ============
 Internal tool for BBD staff communication
 
- 
+  
 #######Awards 
 
 1.A communication employee logs into the webApp and sends
@@ -25,7 +25,7 @@ process flows for the nominations/awards
 
 Step 1  
 
-![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374917509/nma_dwpq5t.jpg)
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1375683434/image1_ubmaxr.png)
 
 Step 2 
 
@@ -74,5 +74,7 @@ Base notification is the basic notification that will be used to send messages t
 ##Event Invites##
  
 ![Events Sequence Diagram](eventsequence.png)  
+
+
 
 
