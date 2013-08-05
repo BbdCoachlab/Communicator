@@ -4,7 +4,7 @@ Internal tool for BBD staff communication
 
   
 #######Awards 
-
+ 
 1.A communication employee logs into the webApp and sends
 a reminder that will be sent to all the employees informing them to nominate each other (base notification). 
 
@@ -23,7 +23,7 @@ a reminder that will be sent to all the employees informing them to nominate eac
 process flows for the nominations/awards
  
 
-Step 1  
+Step 1   
 
 ![](http://res.cloudinary.com/dijnw3hev/image/upload/v1375683434/image1_ubmaxr.png)
 
