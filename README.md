@@ -6,7 +6,6 @@ Internal tool for BBD staff communication
 
 ##Overview of functionality##
 
-
 ###Login function:###
 
 Users will be logged in using the Yammer OAuth API.
