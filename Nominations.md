@@ -1,4 +1,11 @@
-Events / Nominations 
+Nominations
+
+Current problem.
+
+The problem with how they do nominations is that they use e mails and  it is basically spam being sent around the employees and this approach is not efficient.
+
+
+how the new system will work.
 
 Once the employee has logged in using Yammer.
 They will then be able to start using the system and one of the features in the system is the nominations.
@@ -33,6 +40,9 @@ Once the nominations are made and the draws are completed then employees will th
 Employee of the month/ employee with the most nominations.
 
 ![](http://res.cloudinary.com/dijnw3hev/image/upload/v1375692533/empOfMonth_lrrvx0.png)
+
+the notification will also include top 5 employees and the number of nominations they have.
+
 
 
 
