@@ -85,6 +85,3 @@ Step 2
 ![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374849966/55_i5movm.jpg)
 
 
-
-# Overview of the design #
-## Application Design Screens ##
