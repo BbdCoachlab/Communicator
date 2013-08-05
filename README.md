@@ -2,8 +2,6 @@ Communicator
 ============
 Internal tool for BBD staff communication
 
-##Web application####
-
 ##Overview of functionality##
 
 ###Login function:###
