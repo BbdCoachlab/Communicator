@@ -73,7 +73,7 @@ Base notification is the basic notification that will be used to send messages t
 
 ##Event Invites##
  
-![Events Sequence Diagram](eventsequence.png)  
+
 
 
 
