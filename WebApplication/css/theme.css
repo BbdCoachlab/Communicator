@@ -1,0 +1,83 @@
+#header{
+	width:99.4%;
+	height: 23%; 
+	background-image:url(images/logofina.PNG);
+	background-repeat:no-repeat;
+	background-color: red;
+	border: #c0c0c0 solid;
+	/*background-image:######;*/
+}
+.loginButton{
+	float:right;
+	width:170px;
+	height:30px;
+	margin-top: 200px;
+	margin-right:90px;
+	/*background-color:blue;*/
+	background-image:url(images/ym-logo.png);
+	background-repeat:no-repeat;
+}
+.content-wrapper{
+	margin-right: 120px;
+	margin-left:120px;
+	background-color:#c0c0c0;
+	height: 500px;
+}
+.info{
+	margin-top:40px;
+}
+#birthday{
+	width:99.4%;
+	height: 19%; 
+	background-image:url(images/bbdminilogo.PNG);
+	background-repeat:no-repeat;
+	background-color: red;
+	border: #c0c0c0 solid;
+	
+}
+
+#events{
+	width:99.4%;
+	height: 19%; 
+	background-image:url(images/bbdminilogo.PNG);
+	background-repeat:no-repeat;
+	background-color: red;
+	border: #c0c0c0 solid;
+}
+form    {
+background: -webkit-gradient(linear, bottom, left 175px, from(#D0D0D0 ), to(#C0C0C0));
+background: -moz-linear-gradient(bottom, #D0D0D0 , #C0C0C0 175px);
+background-color:#C0C0C0;
+margin:auto;
+position:center;
+width:400px;
+height:300px;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 12px;
+font-style: none;
+line-height: 24px;
+font-weight: bold;
+color: #000000;
+text-decoration: none;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+	
+
+
+input[type=button]
+{
+  background-color: #E3E1B8; 
+}
+
+input[type=button]:hover
+{
+  background-color: #46000D
+}
