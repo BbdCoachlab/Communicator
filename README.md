@@ -138,5 +138,4 @@ Step 2
 
 
 
-![](activityone.png)
 
