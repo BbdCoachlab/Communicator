@@ -19,4 +19,4 @@ The mobile devices for each user, the screen will show:
 -  the message "Happy birthday Mr X" and
 -  an image of the person and a decoration image such as a birthday cake image.
 
-The images will be stored in a server and pushed the mobile application on the devices of the users to view. The application should be able to open this birthday function across all platforms including Android, iOS, Windows and BlackBerry.
+The images will be stored in a server and pushed to the mobile application on the devices of the users to view. The application should be able to open this birthday function across all platforms including Android, iOS, Windows and BlackBerry.
