@@ -5,7 +5,12 @@ Internal tool for BBD staff communication
 
 
 
+
 ##Web application####
+
+##Web application####
+
+
 ##Overview of functionality##
 
 
@@ -35,7 +40,7 @@ These questions are:
 
 Users will give feedback to any of the questions listed above from within the app.
 	
-HEAD
+
 Events may be sent to all employees or just to specific teams.
 
 ##Event Invites##
@@ -46,7 +51,15 @@ Events may be sent to all employees or just to specific teams.
 	
 	
 	
+
+
+Events may be sent to all employees or just to specific teams.
+	
+	
+
+
 Events may be sent to all employees or just to specific teams. Below is the sequence diagram for the events function.
+
 ![Events Sequence Diagram](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png)
 
 
@@ -58,7 +71,7 @@ Base notification is the basic notification that will be used to send messages t
 - Subject
 
 **Message** - The message contains the actual text of the notification. For example if the base notification is a birthday message the the message might be:
-> ''happy birthday XXXXX'' 
+ ''happy birthday XXXXX'' 
 
 
 **Image** - The image is the image of the notification. For example, if the notification is a birthday message then the image might be an image of a cake.
@@ -125,4 +138,5 @@ Step 2
 
 
 
+![](activityone.png)
 
