@@ -97,7 +97,7 @@ Step 2
 ![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374849966/55_i5movm.jpg)
 
 
+<!---
+[](activityone.png)
 
-![](activityone.png)
-
-
+-->
