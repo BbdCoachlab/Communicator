@@ -33,5 +33,5 @@ As mentioned in the previous section, the proposed soultion aims to produce the 
 - A Windows mobile application
 
 ##Project Schedule##
-Still working on this.
+
 
