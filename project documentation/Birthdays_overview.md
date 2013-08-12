@@ -9,7 +9,7 @@ This can create:
 
 In order to deal with the issue, the development of a mobile application will help reduce the problem. The BBD mobile application will handle birthday notification, awards and events notifications.
 
-The Birthday function of the BBD mobile application, will allow for Comms/ HR to send birthday notifications to the BBD employees which will include subject line, message and includes adding an image .
+The Birthday function of the BBD web application, will allow for Comms/ HR to send birthday notifications to the BBD employees which will include subject line, message and includes adding an image .
 
 On the mobile side, the application will allow empleyees to login using Yammer and when logged in, there will be an option of going to the birthdays function.
 
