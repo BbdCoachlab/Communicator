@@ -2,25 +2,15 @@ Communicator
 ==========
 Internal tool for BBD staff communication
 
-
-
-
-##Web application####
-
+[a relative link](project_documentation/project_plan.md)
 
 ##Overview of functionality##
 
 ###Login function:###
-
 Users will be logged in using the Yammer OAuth API.
 
-
-####Overview of events function:####
-Sends a base message which may include:
-=======
 ###Events function:###
 Sends a base message which may include: 
-
 
 - Subject
 - Message
@@ -34,27 +24,7 @@ These questions are:
  -  Number of guests
  -  Driver required
 
-Users will give feedback to any of the questions listed above from within the app.
-	
-
-Events may be sent to all employees or just to specific teams.
-
-##Event Invites##
- 
-
-
-
-	
-	
-	
-
-
-Events may be sent to all employees or just to specific teams.
-	
-	
-
-
-Events may be sent to all employees or just to specific teams. Below is the sequence diagram for the events function.
+Users will give feedback to any of the questions listed above from within the app. Events may be sent to all employees or just to specific teams. Below is the sequence diagram for the events function.
 
 ![Events Sequence Diagram](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png)
 
@@ -74,11 +44,7 @@ Base notification is the basic notification that will be used to send messages t
 
 ![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
 
-
- 
-
-##Awards
-
+###Awards###
 **Subject** - This attribute will contain the subject of the message/notification that is being sent. For example the Communications or HR team will choose from the following Subject options: 
 
 
@@ -133,6 +99,5 @@ Step 2
 ![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374849966/55_i5movm.jpg)
 
 
-<!---
 [](activityone.png)
 
