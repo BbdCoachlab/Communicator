@@ -81,5 +81,5 @@ Step 2
 
 [](activityone.png)
 
-###[Web application](project_documentation/WEBAPPLICATION)###
+###[Web application](project_documentation/WEBAPPLICATION.md)###
 A web app will be developed to allow the COMS/HR department to create messages.
