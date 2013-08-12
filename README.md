@@ -1,8 +1,9 @@
 Communicator
-============
+==========
 Internal tool for BBD staff communication
 
 
+<<<<<<< HEAD
   
 #######Awards 
  
@@ -36,20 +37,31 @@ step 2
 
 ####Overview of login function:###
 =======
+=======
+>>>>>>> upstream/master
 
 
 ##Web application####
 
-##Overview of functionality##
 
+##Overview of functionality##
 
 ###Login function:###
 
 
 Users will be logged in using the Yammer OAuth API.
 
+<<<<<<< HEAD
 ####Overview of events function:####
+=======
+
+####Overview of events function:####
+Sends a base message which may include:
+=======
+###Events function:###
+>>>>>>> upstream/master
 Sends a base message which may include: 
+
 
 - Subject
 - Message
@@ -73,8 +85,21 @@ Events may be sent to all employees or just to specific teams.
 =======
 
 Events may be sent to all employees or just to specific teams.
+
+##Event Invites##
+ 
+
+
+
 	
 	
+	
+
+
+Events may be sent to all employees or just to specific teams.
+	
+	
+
 
 Events may be sent to all employees or just to specific teams. Below is the sequence diagram for the events function.
 
@@ -96,8 +121,65 @@ Base notification is the basic notification that will be used to send messages t
 
 ![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
 
-##Event Invites##
+
+=======
+
  
+
+##Awards
+
+**Subject** - This attribute will contain the subject of the message/notification that is being sent. For example the Communications or HR team will choose from the following Subject options: 
+
+
+
+- Birthday
+- Awards
+- Invitations/Events
+- Newborn babies
+
+**Base Notification Flow Diagram** - 
+
+![Base Flow Diagram](http://res.cloudinary.com/bandilecloud/image/upload/v1375249651/BaseNoteFlow_ap2hlt.png)
+
+
+###Awards/Nomination function###
+
+A communication employee logs into the Website App and sends
+a reminder that will be sent to all the employees informing them to nominate each other (base notification). 
+
+
+The application will display a list of employees name, surname and their picture.
+
+
+The application will display a list of employees name, surname and their picture.
+
+From that list,an employee will be able to select who they want to nominate.
+
+Once they have nominated an employee a text box will appear enabling them to comment on why they have nominated the individual.
+
+An email will be sent to the communications team with every person nominated. 
+
+The communications team will send a message to the all the employees showing the people with the highest nominations (base notification). 
+
+A notification will be sent to all the employee showing all the winners (base notification).
+
+
+
+
+
+
+A notification will be sent to all the employee showing all the winners (base notification).
+
+process flows for the nominations/awards
+ 
+
+Step 1  
+
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374917509/nma_dwpq5t.jpg)
+
+Step 2 
+
+![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374849966/55_i5movm.jpg)
 
 
 
