@@ -2,9 +2,6 @@ Communicator
 ==========
 Internal tool for BBD staff communication
 
-
-<<<<<<< HEAD
-  
 #######Awards 
  
 1.A communication employee logs into the webApp and sends
@@ -35,14 +32,6 @@ step 2
 
 ##Web application####
 
-####Overview of login function:###
-=======
-=======
->>>>>>> upstream/master
-
-
-##Web application####
-
 
 ##Overview of functionality##
 
@@ -51,15 +40,6 @@ step 2
 
 Users will be logged in using the Yammer OAuth API.
 
-<<<<<<< HEAD
-####Overview of events function:####
-=======
-
-####Overview of events function:####
-Sends a base message which may include:
-=======
-###Events function:###
->>>>>>> upstream/master
 Sends a base message which may include: 
 
 
@@ -77,38 +57,13 @@ These questions are:
 
 Users will give feedback to any of the questions listed above from within the app.
 	
-<<<<<<< HEAD
-Events may be sent to all employees or just to specific teams.
-	
-	
-	
-=======
-
 Events may be sent to all employees or just to specific teams.
 
 ##Event Invites##
  
-
-
-
-	
-	
-	
-
-
-Events may be sent to all employees or just to specific teams.
-	
-	
-
-
 Events may be sent to all employees or just to specific teams. Below is the sequence diagram for the events function.
 
 ![Events Sequence Diagram](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png)
-
-
-###Base Notification###
-Base notification is the basic notification that will be used to send messages to the employees on the proposed mobile application. This type of notification uses a push technology. That is, it will use an internet-based communication which is initiated by the publisher(or a central server). The proposed attributes for the base notification are:
->>>>>>> upstream/master
 
 ##Base Notification##
 Base notification is the basic notification that will be used to send messages to the employees on the proposed mobile application. This type of notification uses a push technology. That is, it will use an internet-based communication which is initiated by the publisher(or a central server). The proposed attributes for the base notification are: image, subject and message.
@@ -121,16 +76,9 @@ Base notification is the basic notification that will be used to send messages t
 
 ![Happy birthday image](https://f.cloud.github.com/assets/1060960/848359/67b215c2-f45d-11e2-8935-ee987ccca3a9.jpg)
 
-
-=======
-
- 
-
 ##Awards
 
 **Subject** - This attribute will contain the subject of the message/notification that is being sent. For example the Communications or HR team will choose from the following Subject options: 
-
-
 
 - Birthday
 - Awards
@@ -163,16 +111,10 @@ The communications team will send a message to the all the employees showing the
 
 A notification will be sent to all the employee showing all the winners (base notification).
 
-
-
-
-
-
 A notification will be sent to all the employee showing all the winners (base notification).
 
 process flows for the nominations/awards
  
-
 Step 1  
 
 ![](http://res.cloudinary.com/dijnw3hev/image/upload/v1374917509/nma_dwpq5t.jpg)
