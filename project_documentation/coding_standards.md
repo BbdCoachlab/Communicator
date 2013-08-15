@@ -1,6 +1,6 @@
 Coding Standards
 ===============
-The purpose of this document is to provide the coding standards that must be adhered to. The coding standards for HTML, CSS and JavaScript are provided. Any code that violates the coding standards will not be accepted.
+The purpose of this document is to provide the coding standards that must be adhered to. The coding standards for HTML and JavaScript are provided. Any code that violates the coding standards will not be accepted.
 
 ##HTML##
 The coding standards for HTML are based on the [Google HTML Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml).
@@ -76,12 +76,45 @@ Use double (" ") rather than single quotation marks (' ') around attribute value
 	<!-- Recommended -->
 	<a class="maia-button maia-button-secondary">Sign in</a>
 
-
-##CSS##
-The coding standards for CSS are based on the [Google HTML Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml).
-
-
 ##JavaScript##
+The coding standards that need to be followed for JavaScript files are given below.
+
+####Variable Declarations####
+All variables should be declared before used. Local variables are declared using the "var" key word.
+
+	//Recommended
+	var currentEntry;
+    var level;        
+    var size;         
+
+####Semicolons####
+Always use semicolons. Do not rely on implicit insertion.
+
+####Comments####
+Explain code as needed and where possible. Use comments to explain code: 
+
+- What does it cover?
+- What purpose does it serve?
+
+Use JSDoc format. Bellow is an example:
+	
+	/**
+	 * A JSDoc comment should begin with a slash and 2 asterisks.
+	 * Inline tags should be enclosed in braces like {@code this}.
+	 * @desc Block tags should always start on their own line.
+	 */
+
+#### ####
+#### ####
+#### ####
+#### ####
+#### ####
+#### ####
+
+##General##
+Use validators to check the validity of your HTML code. See the [W3 validator](http://validator.w3.org/nu).
 
 ##References##
 - [http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xm](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
+- [http://javascript.crockford.com/code.html](http://javascript.crockford.com/code.html)
+- [http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
