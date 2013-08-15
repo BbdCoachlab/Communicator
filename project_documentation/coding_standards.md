@@ -79,16 +79,36 @@ Use double (" ") rather than single quotation marks (' ') around attribute value
 ##JavaScript##
 The coding standards that need to be followed for JavaScript files are given below.
 
+####Indentation####
+Indent by two spaces at a time. Don't use tabs or mix tabs and spaces for indentation. Use a new line for every statement.
+
+	//Recommended
+	function printArray(arr) {
+	  for (var key in arr) {
+	    print(arr[key]);
+	  }
+	}
+	
+
 ####Variable Declarations####
 All variables should be declared before used. Local variables are declared using the "var" key word.
 
-	//Recommended
+	//Recommended for local variables
 	var currentEntry;
     var level;        
     var size;         
 
 ####Semicolons####
-Always use semicolons. Do not rely on implicit insertion.
+Always end statements with a semicolon. Do not rely on implicit insertion. Semicolons should be included at the end of function expressions, but not at the end of function declarations. The distinction is illustrated below.
+
+	//Recommended
+	var foo = function() {
+	  return true;
+	};  // semicolon here.
+	
+	function foo() {
+	  return true;
+	}  // no semicolon here.
 
 ####Comments####
 Explain code as needed and where possible. Use comments to explain code: 
@@ -104,13 +124,6 @@ Use JSDoc format. Bellow is an example:
 	 * @desc Block tags should always start on their own line.
 	 */
 
-#### ####
-#### ####
-#### ####
-#### ####
-#### ####
-#### ####
-
 ##General##
 Use validators to check the validity of your HTML code. See the [W3 validator](http://validator.w3.org/nu).
 
@@ -118,3 +131,4 @@ Use validators to check the validity of your HTML code. See the [W3 validator](h
 - [http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xm](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
 - [http://javascript.crockford.com/code.html](http://javascript.crockford.com/code.html)
 - [http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+- [http://validator.w3.org/nu](http://validator.w3.org/nu)
