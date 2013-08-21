@@ -16,8 +16,6 @@
           </div>
         </div>
 		
-		<!-- include the form !-->
-		<?php include('baseform.php'); ?>
 		
 	  </div>
     </body>

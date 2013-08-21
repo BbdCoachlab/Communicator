@@ -14,10 +14,7 @@
               <h1>birthdays</h1>            
             </div>
           </div>
-        </div>
-		
-		<!-- include the form !-->
-		<?php include('baseform.php'); ?>
+        </div>		
 		
 	  </div>
     </body>
