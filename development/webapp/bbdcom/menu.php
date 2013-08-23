@@ -10,7 +10,9 @@
     <body>
       <div class="navbar navbar-fixed-top">
         <div class="container">
-          <!--<a href="dashboard.php" class="navbar-brand">bbd communicator</a>-->
+
+          <a href="dashboard.php" class="navbar-brand">BBD Communicator</a>
+
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -25,7 +27,11 @@
 		    </ul>
 			
             <ul class="nav navbar-nav pull-right">
+
               <li><a href="index.php" >Log out</a></li>            
+
+              <li id="logout"><a href="index.php" >Log out</a></li>            
+
             </ul>
           </div>
         </div>
