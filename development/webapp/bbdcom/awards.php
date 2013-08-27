@@ -19,7 +19,7 @@
           </div>
         </div>
 		
-		'<div class="row">
+		<div class="row">
           <div class="col-lg-12">
             <div class="well">
               <form class="bs-example form-horizontal" action="scripts/send_awards.php" method="post"> 
@@ -56,7 +56,7 @@
               </form>
             </div>
           </div>
-      </div>';
+      </div>;
 		
 	  </div>
     </body>
