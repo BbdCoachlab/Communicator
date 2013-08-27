@@ -10,7 +10,7 @@
 	
 	
       <div class="container">
-	    <!-- making the heading !-->
+	    <!-- the heading !-->
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
