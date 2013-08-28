@@ -17,7 +17,10 @@
               <h1>events</h1>            
             </div>
           </div>
-        </div>	
+        </div>
+		
+		<!-- include the form !-->
+		<?php include('baseform.php'); ?>
 		
 	  </div>
     </body>
