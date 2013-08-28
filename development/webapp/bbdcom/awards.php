@@ -11,17 +11,13 @@
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
-
-              <h1>Awards</h1>            
-
+              <h1>awards</h1>            
             </div>
           </div>
         </div>
 		
-
 		<!-- include the form !-->
 		<?php include('baseform.php'); ?>
-
 		
 	  </div>
     </body>

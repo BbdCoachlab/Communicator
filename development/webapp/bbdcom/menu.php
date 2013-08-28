@@ -8,6 +8,7 @@
     </head>
 
     <body>
+
         <div class="navbar navbar-fixed-top">
             <div class="container">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -30,6 +31,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </body>
 </html>
