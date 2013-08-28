@@ -1,4 +1,8 @@
-<?php include('menu.php'); ?>
+<!-- include the menu bar !-->
+<?php 
+    include('menu.php'); 
+    include('scripts/check_logged_in.php');
+?>
 
 <!DOCTYPE html>
   <html lang="en">
