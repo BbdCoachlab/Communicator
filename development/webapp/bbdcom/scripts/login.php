@@ -27,22 +27,22 @@ try {
     $ch = curl_init();
 
     /*     * FOR WITS PROXY* */   
-      curl_setopt($ch, CURLOPT_URL, $url);
+    /*  curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($ch, CURLOPT_HEADER, 0);
       curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 1);
       curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'students\450623:cns.2013');
       curl_setopt($ch, CURLOPT_PROXY, 'proxyss.wits.ac.za');
       curl_setopt($ch, CURLOPT_PROXYPORT, 80);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);    
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);    */
 
     /*     * NO PROXY FOR BBD WIFI* */
-    /*
+   
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);     
-     */
+     
 
     $result = curl_exec($ch);
     curl_close($ch);

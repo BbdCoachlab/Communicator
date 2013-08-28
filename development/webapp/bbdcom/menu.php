@@ -25,11 +25,7 @@
 		    </ul>
 			
             <ul class="nav navbar-nav pull-right">
-<<<<<<< HEAD
               <li id="logout"><a href="scripts/logout.php" >Log out</a></li>            
-=======
-              <li><a href="index.php" >Log out</a></li>            
->>>>>>> upstream/master
             </ul>
           </div>
         </div>

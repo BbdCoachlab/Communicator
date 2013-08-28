@@ -102,7 +102,7 @@ The mobile app will be developed for the Android, BlackBerry, iOS and Windows mo
 ##Project Schedule##
 Below is the project schedule for implementing the system. It contains the list of tasks to be formed as well as the start date, finish date and person assigned to the the task. We aim to start implementing the project on 19 August 2013 and finish on 14 October 2013.
 
-![project_schedule](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1375944822/schedule_fgsbnx.png)
+![project_schedule](http://res.cloudinary.com/ddgnvmjdr/image/upload/v1377694140/timeplan_r92xru.png)
 
 ##Conclusion##
 
