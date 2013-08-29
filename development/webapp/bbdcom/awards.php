@@ -5,12 +5,13 @@
   <html lang="en">
 	
     <body>
-	
-
-	
-	
+		
       <div class="container">
 	    <!-- the heading !-->
+
+      <div class="container">
+	    <!-- making the heading !-->
+
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
@@ -19,6 +20,7 @@
           </div>
         </div>
 		
+
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
@@ -57,6 +59,10 @@
             </div>
           </div>
       </div>;
+
+		<!-- include the form !-->
+		<?php include('baseform.php'); ?>
+
 		
 	  </div>
     </body>
