@@ -25,7 +25,7 @@
 		    </ul>
 			
             <ul class="nav navbar-nav pull-right">
-              <li id="logout"><a href="index.php" >Log out</a></li>            
+              <li><a href="index.php" >Log out</a></li>            
             </ul>
           </div>
         </div>
