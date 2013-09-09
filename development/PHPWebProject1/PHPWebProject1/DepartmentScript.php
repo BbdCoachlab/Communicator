@@ -9,19 +9,23 @@ function isDepartment($name){
     }
     
     
-    //check if user is in database
-    $testQuery = "SELECT * FROM Group WHERE name =".$name.";";
+    //check if department is in database
+    $testQuery = "SELECT TOP 1 * FROM Group WHERE name =".$name.";";
     $testStatement = sqlsrv_query($conn,$testStatement);
     if($testStatement === false){
+        //Free the statement and close the database connection
+        sqlsrv_free_stmt($testStatement);
+        sqlsrv_close($conn);
         return false;
     } else {
+        //Free the statement and close the database connection
+        sqlsrv_free_stmt($testStatement);
+        sqlsrv_close($conn);
         return true;
     }
     
     
-    //Free the statement and close the database connection
-    sqlsrv_free_stmt($testStatement);
-    sqlsrv_close($conn);
+    
 }
 
 function addDepartment($name){
@@ -32,18 +36,24 @@ function addDepartment($name){
     if ($conn === false){
         die("Connection to Database failed: Make sure the server and database addresses are correct");
     }
-    //Inserting a user into the database
-    $insertQuery = "INSERT INTO Group (name, group_size) VALUES ('".$name."', 0);";
+    //Inserting a department into the database
+    $insertQuery = "INSERT INTO Department (name, department_size) VALUES ('".$name."', 0);";
     $insertStatement = sqlsrv_query($conn,$insertQuery);
     if($insertStatement===false){
-        echo "Group insertion failed";
+        echo "department insertion failed";
         die(print_r(sqlsrv_errors(), true));
     }
     //free statement and free statement
     sqlsrv_free_stmt($insertStatement);
     sqlsrv_close($conn);
 }
+//increase department size
+function increaseDepartmentSize(){
+    
+}
+//decrease department size
 //return department size
 //delete department
+//list department
 //edit department name...maybe
 ?>

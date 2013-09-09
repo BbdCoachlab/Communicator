@@ -23,6 +23,9 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="connectionScript.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DepartmentScript.php">
       <SubType>Code</SubType>
     </Compile>

@@ -10,7 +10,7 @@ function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate
     
     
     //Inserting a user into the database
-    $insertQuery = "INSERT INTO User (id_user, name, surname, email, profile_pic_url, birthdate) VALUES ('".$id_user."', '".$name."', '".$surname."', '".$email."', '".$profile_pic_url."', '".$birthdate."');";
+    $insertQuery = "INSERT INTO [User] (id_user, name, surname, email, profile_pic_url, birthdate) VALUES ('".$id_user."', '".$name."', '".$surname."', '".$email."', '".$profile_pic_url."', '".$birthdate."')";
     $insertStatement = sqlsrv_query($conn,$insertQuery);
     if($insertStatement===false){
         echo "User insertion failed";
@@ -21,7 +21,7 @@ function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate
     
     
     /*verification: print out id and name of added user*/
-    $testQuery = "SELECT * FROM User WHERE id_user =".$id_user.";";
+    $testQuery = "SELECT * FROM [User] WHERE id_user =".$id_user.";";
     $testStatement = sqlsrv_query($conn,$testStatement);
     if($testStatement === false){
         echo "test query could not connect";
@@ -49,18 +49,19 @@ function isUser($id_user){
     
     
     //check if user is in database
-    $testQuery = "SELECT * FROM User WHERE id_user =".$id_user.";";
+    $testQuery = "SELECT * FROM [User] WHERE id_user =".$id_user.";";
     $testStatement = sqlsrv_query($conn,$testStatement);
     if($testStatement === false){
         return false;
     } else {
+        //Free the statement and close the database connection
+        sqlsrv_free_stmt($testStatement);
+        sqlsrv_close($conn);
         return true;
     }
     
     
-    //Free the statement and close the database connection
-    sqlsrv_free_stmt($testStatement);
-    sqlsrv_close($conn);
+    
 }
 
 //getUser
