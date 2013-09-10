@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "PHPWebProject1", "PHPWebProject1\PHPWebProject1.phpproj", "{5C230693-826B-4BB0-A015-DA8C79E08670}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C230693-826B-4BB0-A015-DA8C79E08670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C230693-826B-4BB0-A015-DA8C79E08670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C230693-826B-4BB0-A015-DA8C79E08670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C230693-826B-4BB0-A015-DA8C79E08670}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
