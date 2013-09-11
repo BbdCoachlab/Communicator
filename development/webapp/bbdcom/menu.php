@@ -3,8 +3,8 @@
 <html lang="en">
     <head>
         <title>bbd communicator</title>
-        <link rel="shortcut icon" href="images/bbd-symbol.png" >
-        <link rel="stylesheet" href="style/bootstrap.css" media="screen">
+      <link rel="shortcut icon" href="images/bbd-symbol.png" />
+      <link rel="stylesheet" href="style/bootstrap.css" media="screen" />      
     </head>
 
     <body>
