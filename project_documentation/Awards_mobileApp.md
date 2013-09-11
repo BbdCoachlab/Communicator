@@ -9,8 +9,9 @@ The awards function will allow users to recieve awards notifications and be able
 It will have the base message functionality including:
 
 -  subject line,
--  message and
--  the ability to view the image of the person being you can nominate
+-  message
+-  the ability to view the image of the person you can nominate and
+-  nomination form to allow the employees to fill in who they are nominating for.
 
 on the user's divice using the mobile application.
 
