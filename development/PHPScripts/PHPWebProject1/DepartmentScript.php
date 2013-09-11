@@ -4,8 +4,9 @@ function isDepartment($name){
     $conn = connectToDB();
     
     //check if department is in database
-    $testQuery = "SELECT TOP 1 * FROM Group WHERE name =".$name.";";
-    $testStatement = sqlsrv_query($conn,$testStatement);
+    $testQuery = "SELECT TOP 1 * FROM Group 
+                  WHERE name =?;";
+    $testStatement = sqlsrv_query($conn,$testStatement, array($name));
     if($testStatement === false){
         //Free the statement and close the database connection
         sqlsrv_free_stmt($testStatement);
@@ -25,8 +26,8 @@ function addDepartment($name){
     $conn = connectToDB();
     //Inserting a department into the database
     $insertQuery = "INSERT INTO [Department] (name, department_size) 
-                    VALUES ('".$name."', 0);";
-    $insertStatement = sqlsrv_query($conn,$insertQuery);
+                    VALUES (?, 0);";
+    $insertStatement = sqlsrv_query($conn,$insertQuery, array($name));
     if($insertStatement===false){
         echo "department insertion failed";
         die(print_r(sqlsrv_errors(), true));
@@ -41,8 +42,8 @@ function departmentSize($conn, $name){
     //Retrieve current size
     $selectQuery = "SELECT department_size 
                     FROM [Department] 
-                    WHERE name = '".$name."';";
-    $statement = sqlsrv_query($conn,$selectQuery);
+                    WHERE name = ?;";
+    $statement = sqlsrv_query($conn, $selectQuery, array($name));
     if ($statement===false)
     {
     	die(print_r(sqlsrv_errors(),true));
@@ -60,7 +61,9 @@ function increaseDepartmentSize($name){
     //set new department size
     $newDepartmentSize = $currentDepartmentSize + 1;
     //update table entry department size
-    $updateQuery = "UPDATE Department SET department_size = ? WHERE name = ?";
+    $updateQuery = "UPDATE Department 
+                    SET department_size = ? 
+                    WHERE name = ?";
     $statement = sqlsrv_query($conn,$updateQuery,array($newDepartmentSize,$name));
     if ($statement===false)
     {
