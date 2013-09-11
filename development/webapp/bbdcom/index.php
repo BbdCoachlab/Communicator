@@ -11,7 +11,11 @@
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
+
+              <h1>bbd communicator</h1>
+
               <h1><img src="images/bbd-symbol.png" alt="bbd-logo" width="50" height="50" style="position: relative; top: -9px; ">bbd communicator</h1>
+
               <p class="lead">internal communication tool</p>
             </div>
           </div>

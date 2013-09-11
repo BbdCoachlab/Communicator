@@ -15,6 +15,10 @@
             </div>
           </div>
         </div>
+	
+		<!-- include the form !-->
+		<?php include('baseform.php'); ?>
+
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
@@ -53,6 +57,7 @@
             </div>
           </div>
       </div>
+
 		
 	  </div>
     </body>
