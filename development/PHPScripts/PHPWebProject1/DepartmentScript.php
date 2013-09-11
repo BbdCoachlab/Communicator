@@ -36,10 +36,8 @@ function addDepartment($name){
     sqlsrv_close($conn);
     return "successful";
 }
-//increase department size
-function increaseDepartmentSize($name){
-    //connecting to the server
-    $conn = connectToDB();
+//retreive department size
+function departmentSize($conn, $name){
     //Retrieve current size
     $selectQuery = "SELECT department_size 
                     FROM [Department] 
@@ -49,10 +47,18 @@ function increaseDepartmentSize($name){
     {
     	die(print_r(sqlsrv_errors(),true));
     }
-    $currentDepartmentSize = sqlsrv_fetch_array($statement);
+    $DepartmentSize = sqlsrv_fetch_array($statement);
     sqlsrv_free_stmt($statement);
+    return $DepartmentSize[0];
+}
+
+//increase department size
+function increaseDepartmentSize($name){
+    //connecting to the server
+    $conn = connectToDB();
+    $currentDepartmentSize = departmentSize($conn, $name);
     //set new department size
-    $newDepartmentSize = $currentDepartmentSize[0] + 1;
+    $newDepartmentSize = $currentDepartmentSize + 1;
     //update table entry department size
     $updateQuery = "UPDATE Department SET department_size = ? WHERE name = ?";
     $statement = sqlsrv_query($conn,$updateQuery,array($newDepartmentSize,$name));

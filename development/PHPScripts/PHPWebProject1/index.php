@@ -14,7 +14,7 @@ echo $output;*/
 
 //testing department
 //$output1 = addDepartment("test");
-$output2 = increaseDepartmentSize("BBD");
+$output2 = increaseDepartmentSize("Coachlab");
 echo $output1." ".$output2;
 
 ?>
