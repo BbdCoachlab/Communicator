@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
     <head>      
         <meta charset="UTF-8">
         <title>bbd communicator</title>
@@ -11,12 +12,17 @@
     </head>
 
     <body>   
+
+
         <div class="container">
+
             <div class="page-header" id="banner">
                 <div class="row">
                     <div class="col-lg-6">
                         <h1><img src="images/bbd-symbol.png" alt="bbd-logo" width="50" height="50" style="position: relative; top: -9px; ">bbd communicator</h1>
                         <p class="lead">internal communication tool</p>
+
+
                     </div>
                 </div>
             </div>                   
@@ -49,5 +55,7 @@
                 </div>
             </div>           
         </div>        
+        </div>        
+
     </body>
 </html>

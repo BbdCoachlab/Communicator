@@ -17,10 +17,15 @@
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
-              <h1>birthdays</h1>            
+
+              <h1>Birthdays</h1>            
             </div>
           </div>
         </div>
+	
+		<!-- include the form !-->
+		<?php include('baseform.php'); ?>
+
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
