@@ -50,14 +50,14 @@
 				  <div class="form-group">
                     <label for="image" class="col-lg-2 control-label">Upload Image</label>
                     <div class="col-lg-10">
-                      <input type="file"  id="image" name="image">
+                      <input type="file"  id="image" name="image" accept="image/*">
                     </div>
                   </div>
 				  
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">                      
                       <button type="submit" class="btn btn-primary" id="test">Submit</button> 
-					  <button type="reset" class="btn btn-default">Cancel</button> 
+					  <button type="reset" class="btn btn-default" id="btn_cancel" name="btn_cancel">Cancel</button> 
                     </div>
                   </div>                  
                 </fieldset>

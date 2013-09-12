@@ -5126,3 +5126,8 @@ td.visible-print {
 .affix {
   position: fixed;
 }
+
+
+.error {
+    color:#ff0039;
+}
