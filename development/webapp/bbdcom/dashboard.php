@@ -5,32 +5,8 @@
 ?>
 
 <!DOCTYPE html>
-<<<<<<< HEAD
-  <html lang="en">
-  
-    <body>    
-      <div class="container">
-        <div class="page-header" id="banner">
-          <div class="row">
-            <div class="col-lg-6">
-              <h1>bbd communicator</h1>
-              <p class="lead">internal communication tool</p>
-            </div>
-          </div>
-        </div>
-		
-        <div class="bs-docs-section">
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="jumbotron">
-                <h1>Birthdays</h1>
-                <p>Send a birthday message.</p>
-                <p><a class="btn btn-primary btn-large">Send Message</a></p>
-              </div>            
-=======
 
 <html lang="en">
-
     <body>
         <div class="container">
             <div class="page-header" id="banner">
@@ -40,7 +16,6 @@
                         <p class="lead">Internal Communication Tool</p>
                     </div>
                 </div>
->>>>>>> upstream/master
             </div>
 
             <div class="bs-docs-section">
