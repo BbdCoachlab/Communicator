@@ -13,18 +13,28 @@
   <html lang="en">
 	
     <body>
-	
+		
+      <div class="container">
+	    <!-- the heading !-->
+
       <div class="container">
 	    <!-- making the heading !-->
+
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
-              <h1>awards</h1>            
+
+              <h1>Awards</h1>            
+
             </div>
           </div>
         </div>
 		
+<<<<<<< HEAD
 		<div class="row">
+=======
+
+>>>>>>> upstream/master
           <div class="col-lg-12">
             <div class="well">
               <form class="bs-example form-horizontal" action="scripts/send_events.php" method="post" id="basic_form">
