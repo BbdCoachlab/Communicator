@@ -3,12 +3,11 @@
 <html lang="en">
     <head>
         <title>bbd communicator</title>
-        <link rel="shortcut icon" href="images/bbd-symbol.png" >
-        <link rel="stylesheet" href="style/bootstrap.css" media="screen">
+      <link rel="shortcut icon" href="images/bbd-symbol.png" />
+      <link rel="stylesheet" href="style/bootstrap.css" media="screen" />      
     </head>
 
     <body>
-
         <div class="navbar navbar-fixed-top">
             <div class="container">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -31,7 +30,6 @@
                     </ul>
                 </div>
             </div>
-
         </div>
     </body>
 </html>
