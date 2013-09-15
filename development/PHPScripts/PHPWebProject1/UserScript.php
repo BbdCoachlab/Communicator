@@ -36,7 +36,28 @@ function isUser($id_user){
     
     
 }
+//retreive first five birthdays
 
+function firstFiveBirthdays(){
+    //connect to the server
+    $today = date("m/d/Y");
+    $conn = connectToDB();
+    //select first five birthdays
+    $selectQuery = "SELECT TOP 5 * FROM [User]
+                    WHERE birthdate = ?";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
+    if ($selectStatement === false)
+    {
+        sqlsrv_free_stmt($testStatement);
+        sqlsrv_close($conn);
+    	return null;
+    }
+    $results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC);
+    $test = json_encode($results);
+    sqlsrv_free_stmt($testStatement);
+    sqlsrv_close($conn);
+    return $test;
+}
 //getUser
 //remove user
 //update user

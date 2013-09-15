@@ -75,8 +75,8 @@ function increaseDepartmentSize($name){
     
 }
 //decrease department size
-//return department size
 //delete department
 //list department
+
 //edit department name...maybe
 ?>
