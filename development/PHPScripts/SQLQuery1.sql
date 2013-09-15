@@ -1,1 +1,0 @@
-﻿UPDATE Department SET department_size = 3 WHERE name = 'BBD'
