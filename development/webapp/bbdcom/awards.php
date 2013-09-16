@@ -33,7 +33,7 @@
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
-              <form class="bs-example form-horizontal" action="scripts/send_events.php" method="post" id="basic_form">
+              <form class="bs-example form-horizontal" action="scripts/send_basic_message.php" method="post" id="basic_form">
                 <fieldset>    
 				  <div class="form-group">
                     <label for="department_list" class="col-lg-2 control-label">Send to:</label>
@@ -65,8 +65,8 @@
 				  
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">                      
-                      <button type="submit" class="btn btn-primary" id="test">Submit</button> 
-					  <button type="reset" class="btn btn-default">Cancel</button> 
+                      <button type="submit" class="btn btn-primary" id="btn_submit" name="btn_submit">Submit</button> 
+					   <button type="reset" class="btn btn-default" id="btn_cancel" name="btn_cancel">Cancel</button>
                     </div>
                   </div>                  
                 </fieldset>
@@ -78,5 +78,7 @@
       </div>
 		
 	  </div>
+     </div>
+     <?php include('scripts/check_message_success.php'); ?>
     </body>
   </html>

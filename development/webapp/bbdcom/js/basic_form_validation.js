@@ -14,6 +14,9 @@ $(document).ready(function () {
             image: {
                 accept: "png|jpg|jpeg|jpe|gif",
                 fileSize: 2097152       //2MB
+            },
+            rsvp: {
+                required: true
             }
         },
         messages: {
@@ -26,11 +29,10 @@ $(document).ready(function () {
             image: {
                 accept: "Please upload images only",
                 fileSize: "Pleas upload image smaller than 2MB"
+            },
+            rsvp: {
+                required: "Please provide an email address to which RSVP messages must be sent to"
             }
-        },
-        highlight: function (element, errorClass) {
-            $(element).removeClass(errorClass);
-            $(element).parent().addClass("form-group has-error");
         }
     });
 
@@ -47,7 +49,6 @@ $(document).ready(function () {
     });
 
     $("#btn_cancel").click(function(){        
-        validator.resetForm();
-        $(".form-group.has-error").removeClass("form-group has-error");
+        validator.resetForm();       
     });
 });

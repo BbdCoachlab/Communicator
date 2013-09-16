@@ -2,11 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-<<<<<<< HEAD
       <title>bbd communicator</title>
-=======
-        <title>bbd communicator</title>
->>>>>>> upstream/master
       <link rel="shortcut icon" href="images/bbd-symbol.png" />
       <link rel="stylesheet" href="style/bootstrap.css" media="screen" />      
     </head>
@@ -29,7 +25,7 @@
 
                     <ul class="nav navbar-nav pull-right">
 
-                        <li id="logout"><a href="index.php" >Log out</a></li>            
+                        <li id="logout"><a href="scripts/logout.php" >Log out</a></li>            
 
                     </ul>
                 </div>
