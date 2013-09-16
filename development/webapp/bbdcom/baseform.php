@@ -2,7 +2,11 @@
 echo '<div class="row">
           <div class="col-lg-12">
             <div class="well">
+
+              <form class="bs-example form-horizontal" >
+
               <form class="bs-example form-horizontal">
+
                 <fieldset>    
 				
                   <div class="form-group">
