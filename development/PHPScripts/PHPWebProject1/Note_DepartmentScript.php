@@ -1,8 +1,8 @@
 <?php
 //add note department link
-function linkNotificationAndDepartment($id_deparment, $id_notification){
+function linkNotificationAndDepartment($conn, $id_deparment, $id_notification){
     //connecting to the server and database
-    $conn = connectToDB();
+    //$conn = connectToDB();
     
     
     //Inserting a link into the database
@@ -34,10 +34,10 @@ function receivedCount($conn, $id_department, $id_notification){
 }
 
 //increase received counter
-function increasedReceivedCounter($id_department, $id_notification){
+function increaseReceivedCounter($conn, $id_department, $id_notification){
     //connecting to the server
-    $conn = connectToDB();
-    $currentReceivedCounter = departmentSize($conn, $id_department, $id_notification);
+    //$conn = connectToDB();
+    $currentReceivedCounter = receivedCount($conn, $id_department, $id_notification);
     //add 1 to received_counter
     $newReceivedCounter = $currentReceivedCounter + 1;
     //update table entry department size

@@ -1,9 +1,9 @@
 <?php
 //add link between user, department, and note
-function linkDepartmentNotificationUser($id_department, $id_notification, $id_user)
+function linkDepartmentNotificationUser($conn, $id_department, $id_notification, $id_user)
 {
 	//connecting to the server and database
-    $conn = connectToDB();
+    //$conn = connectToDB();
     
     //Inserting a link into the database
     $insertQuery = "INSERT INTO [Department_Note_User] (Department_id_department, Notification_id_notification , User_id_user) 
@@ -18,6 +18,7 @@ function linkDepartmentNotificationUser($id_department, $id_notification, $id_us
     sqlsrv_close($conn);
 }
 
+//
 //delete 3-way link or delete all received notifications
 //get all notifications for a specific user.
 //get all users a specific notifiaction was sent to.

@@ -1,8 +1,7 @@
 <?php
-function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate, $group){
+function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate, $department){
     //connecting to the server and database
     $conn = connectToDB();
-    
     
     //Inserting a user into the database
     $insertQuery = "INSERT INTO [User] (id_user, name, surname, email, profile_pic_url, birthdate) 
@@ -14,6 +13,18 @@ function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate
     }
     //free statement and close database
     sqlsrv_free_stmt($insertStatement);
+    //check if user's department exists if not add the department
+    if (!isDepartment($conn, $department))
+    {
+    	addDepartment($conn, $department);
+    }
+    //get department id
+    $id_department = getDepartmentID($conn, $department);
+    //link user and department
+    linkDepartmentAndUser($conn, $id_department, $id_user);
+    //increase department size
+    increaseDepartmentSize($conn, $id_department);
+    //close connection
     sqlsrv_close($conn);
 }
 
@@ -25,6 +36,9 @@ function isUser($id_user){
                   WHERE id_user = ?";
     $testStatement = sqlsrv_query($conn,$testStatement,array($id_user));
     if($testStatement === false){
+        //Free the statement and close the database connection
+        sqlsrv_free_stmt($testStatement);
+        sqlsrv_close($conn);
         return false;
     } else {
         //Free the statement and close the database connection
@@ -48,15 +62,18 @@ function firstFiveBirthdays(){
     $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
     if ($selectStatement === false)
     {
-        sqlsrv_free_stmt($testStatement);
+        sqlsrv_free_stmt($selectStatement);
         sqlsrv_close($conn);
     	return null;
     }
-    $results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC);
-    $test = json_encode($results);
-    sqlsrv_free_stmt($testStatement);
+    $outputarray = array();
+    while ($results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC))
+    {
+        array_push($outputarray, json_encode($results));
+    }
+    sqlsrv_free_stmt($selectStatement);
     sqlsrv_close($conn);
-    return $test;
+    return json_encode($outputarray);
 }
 //getUser
 //remove user
