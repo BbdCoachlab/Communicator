@@ -30,7 +30,7 @@
           </div>
         </div>
 		
-
+		<div class="row">
           <div class="col-lg-12">
             <div class="well">
               <form class="bs-example form-horizontal" action="scripts/send_events.php" method="post" id="basic_form">

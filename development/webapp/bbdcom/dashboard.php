@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
     <body>
         <div class="container">
             <div class="page-header" id="banner">
