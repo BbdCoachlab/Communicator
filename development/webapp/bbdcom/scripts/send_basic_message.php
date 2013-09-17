@@ -77,6 +77,6 @@ $_SESSION['message_success']='<div class="alert alert-dismissable alert-success"
 
 //add to database
 
-//header('Location: /bbdcom/dashboard.php');
-//exit;
+header('Location: /bbdcom/dashboard.php');
+exit;
 ?>
