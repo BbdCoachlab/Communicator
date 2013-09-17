@@ -18,12 +18,12 @@ function linkDepartmentAndUser($conn, $id_department, $id_user)
     //increase department size
     sqlsrv_close($conn);
 }
-//fetch all users linked with group
-function getGroupMembers($conn, $id_department)
+//fetch all users linked with a department
+function getDepartmentMembers($conn, $id_department)
 {
 	//connect to the server
     //$conn = connectToDB();
-    //select first five birthdays
+    //select user IDs linked to the department
     $selectQuery = "SELECT User_id_user FROM [Department_User]
                     WHERE Department_id_department = ?";
     $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
@@ -43,8 +43,31 @@ function getGroupMembers($conn, $id_department)
     sqlsrv_close($conn);
     return $outputarray;
 }
+//fetch all departments linked with a user
+function getUserDeparmentList($conn, $id_user)
+{
+	//select user IDs linked to the department
+    $selectQuery = "SELECT Department_id_department FROM [Department_User]
+                    WHERE User_id_user = ?";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_user));
+    if ($selectStatement === false)
+    {
+        sqlsrv_free_stmt($selectStatement);
+        sqlsrv_close($conn);
+    	return null;
+    }
+    $outputarray = array();
+    while ($results = sqlsrv_fetch_array($selectStatement))
+    {
+        array_push($outputarray, $results[0]);
+    }
+    //free statement and close connection
+    sqlsrv_free_stmt($selectStatement);
+    sqlsrv_close($conn);
+    return $outputarray;
+}
 
 //delete department user link
-//fetch all groups linked with user
+
 
 ?>

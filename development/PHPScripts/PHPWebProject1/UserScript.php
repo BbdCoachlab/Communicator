@@ -50,14 +50,15 @@ function isUser($id_user){
     
     
 }
-//retreive first five birthdays
 
+//retreive first five birthdays
 function firstFiveBirthdays(){
     //connect to the server
     $today = date("m/d/Y");
     $conn = connectToDB();
     //select first five birthdays
-    $selectQuery = "SELECT TOP 5 * FROM [User]
+    //date name surname department
+    $selectQuery = "SELECT TOP 5 id_user, birthdate, name, surname FROM [User]
                     WHERE birthdate = ?";
     $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
     if ($selectStatement === false)
@@ -67,14 +68,22 @@ function firstFiveBirthdays(){
     	return null;
     }
     $outputarray = array();
+    $userDepartmentListNames = array();
     while ($results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC))
     {
+        $userDepartmentListIDs = getUserDeparmentList($conn, $results['id_user']);
+        for ($i = 0; $i < count($userDepartmentListIDs); $i++)
+        {
+            array_push($userDepartmentListNames,getDepartmentName($conn,$userDepartmentListIDs[$i]));
+        }
+        array_push($results,array("departments"=>$userDepartmentListNames));
         array_push($outputarray, json_encode($results));
     }
     sqlsrv_free_stmt($selectStatement);
     sqlsrv_close($conn);
     return json_encode($outputarray);
 }
+
 //getUser
 //remove user
 //update user

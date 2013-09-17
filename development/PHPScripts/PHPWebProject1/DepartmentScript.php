@@ -74,7 +74,7 @@ function increaseDepartmentSize($conn, $id_department){
     return "succesfull";
     
 }
-//retreive the department id
+//retrieve the department id
 function getDepartmentID($conn, $name)
 {
 	//Retrieve current size
@@ -86,16 +86,54 @@ function getDepartmentID($conn, $name)
     {
     	die(print_r(sqlsrv_errors(),true));
     }
-    $DepartmentSize = sqlsrv_fetch_array($statement);
+    $DepartmentID = sqlsrv_fetch_array($statement);
     sqlsrv_free_stmt($statement);
-    return $DepartmentSize[0];
+    return $DepartmentID[0];
 }
+//retrieve the deparment name
+function getDepartmentName($conn, $id_department)
+{
+	//Retrieve current size
+    $selectQuery = "SELECT name 
+                    FROM [Department] 
+                    WHERE id_department = ?;";
+    $statement = sqlsrv_query($conn, $selectQuery, array($id_department));
+    if ($statement===false)
+    {
+    	die(print_r(sqlsrv_errors(),true));
+    }
+    $DepartmentName = sqlsrv_fetch_array($statement);
+    sqlsrv_free_stmt($statement);
+    return $DepartmentName[0];
+}
+
 //list departments
-
-
+function getAllDepartments()
+{
+	//connecting to the database
+    $conn = connectToDB();
+    
+    //check if department is in database
+    $selectQuery = "SELECT name FROM Group;";
+    $selectStatement = sqlsrv_query($conn,$testStatement);
+    if($selectStatement === false){
+        //Free the statement and close the database connection
+        sqlsrv_free_stmt($selectStatement);
+        sqlsrv_close($conn);
+        return null;
+    }
+    $outputarray = array();
+    while ($result = sqlsrv_fetch_array($selectStatement))
+    {
+        array_push($outputarray, $result[0]);
+    }
+    
+    //Free the statement and close the database connection
+    sqlsrv_free_stmt($selectStatement);
+    sqlsrv_close($conn);
+    return $outputarray;
+}
 //decrease department size
 //delete department
-
-
 //edit department name...maybe
 ?>
