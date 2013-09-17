@@ -8,8 +8,8 @@ include('menu.php');
   <head>
     <script src="js/jquery.js"></script>
     <script src="js/jquery_validation.js"></script>
-    <script src="js/basic_form_validation.js"></script>
-    <script src="js/style_script.js"></script>        
+    <script src="js/basic_form_validation.js"></script> 
+    <script src="js/style_script.js"></script>
   </head>
   <html lang="en">	
     <body>	    
