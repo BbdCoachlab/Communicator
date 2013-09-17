@@ -1,8 +1,12 @@
 <?php
-include "connectionScript.php";
-include "UserScript.php";
-include "NotificationScript.php";
-include "DepartmentScript.php";
+require "connectionScript.php";
+require "UserScript.php";
+require "NotificationScript.php";
+require "DepartmentScript.php";
+require "NomineeScript.php";
+require "Note_DepartmentScript.php";
+require "Department_UserScript.php";
+require "Department_Note_UserScript";
 /*Testing user*/
 //addUser("1234567899","Lucy", "Liu",null,null,"9/15/2013",null);
 //$output = isUser("1234567899");
