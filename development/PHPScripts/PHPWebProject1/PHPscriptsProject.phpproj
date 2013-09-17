@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Name>PHPWebProject1</Name>
+    <Name>PHPscriptsProject</Name>
     <ProjectGuid>5c230693-826b-4bb0-a015-da8c79e08670</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>PHPWebProject1</RootNamespace>

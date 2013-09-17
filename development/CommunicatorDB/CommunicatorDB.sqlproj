@@ -104,16 +104,18 @@
     <Folder Include="Properties" />
     <Folder Include="CommunicatorSchema" />
     <Folder Include="CommunicatorSchema\Tables" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="CommunicatorSchema\CommunicatorSchema.sql" />
     <Build Include="CommunicatorSchema\Tables\Notification.sql" />
-    <Build Include="CommunicatorSchema\Tables\Group_Note_User.sql" />
     <Build Include="CommunicatorSchema\Tables\User.sql" />
     <Build Include="CommunicatorSchema\Tables\Nominee.sql" />
-    <Build Include="CommunicatorSchema\Tables\Note_Group.sql" />
-    <Build Include="CommunicatorSchema\Tables\Group_User.sql" />
-    <Build Include="CommunicatorSchema\Tables\Group.sql" />
+    <Build Include="dbo\Tables\Note_Department.sql" />
+    <Build Include="dbo\Tables\Department_User.sql" />
+    <Build Include="dbo\Tables\Department_Note_User.sql" />
+    <Build Include="dbo\Tables\Department.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="CommunicatorDB.refactorlog" />
