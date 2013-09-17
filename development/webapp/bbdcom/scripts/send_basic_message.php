@@ -65,6 +65,38 @@ else
     }
 }
 
+
+
+//this code is handles sending event messages
+$is_event = $_POST['is_event'];
+if ($is_event)
+{
+    $rsvp = $_POST["rsvp"];
+    if(empty($rsvp))
+    {
+        $rsvp = null;
+        $_SESSION['message_error']='<div class="alert alert-dismissable alert-danger">'
+                                    .'<button id="test" type="button" class="close" data-dismiss="alert">&times;</button>'
+                                    .'<strong>Sending message failed. Please try again.</strong>'
+                                    .'</div>';  
+        header('Location: ' . $_SERVER['HTTP_REFERER']); 
+        exit; 
+    }
+    
+    $info = array(
+    "partner" => false,
+    "diet" => false,
+    "driver"=> false
+    );   
+    
+    if(!empty($_POST['check_list'])) {
+        foreach($_POST['check_list'] as $check) {
+            $info[$check] = true;           
+        }
+    }
+    
+}
+
 $_SESSION['message_success']='<div class="alert alert-dismissable alert-success">'
                                 .'<button id="test" type="button" class="close" data-dismiss="alert">&times;</button>'
                                 .'<strong>Message sent.</strong>'
@@ -74,6 +106,8 @@ $_SESSION['message_success']='<div class="alert alert-dismissable alert-success"
 //echo $subject."<br>";
 //echo $message."<br>";
 //echo $image_path."<br>";
+//echo var_dump($rsvp)."<br>";
+//var_dump($info);
 
 //add to database
 

@@ -33,7 +33,7 @@
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
-              <form class="bs-example form-horizontal" action="scripts/send_basic_message.php" method="post" id="basic_form">
+              <form class="bs-example form-horizontal" action="scripts/send_basic_message.php" method="post" id="basic_form" enctype="multipart/form-data">
                 <fieldset>    
 				  <div class="form-group">
                     <label for="department_list" class="col-lg-2 control-label">Send to:</label>
@@ -75,8 +75,7 @@
           </div>
           </div>		
 	    </div>
-      </div>
-		
+      </div>		
 	  </div>
      </div>
      <?php include('scripts/check_message_success.php'); ?>

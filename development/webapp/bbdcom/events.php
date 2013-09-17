@@ -8,12 +8,11 @@
     <head>
         <script src="js/jquery.js"></script>
         <script src="js/jquery_validation.js"></script>
-        <script src="js/basic_form_validation.js"></script>        
+       <!--  <script src="js/basic_form_validation.js"></script>  -->       
       </head>
   <html lang="en">
 	
-    <body>
-	
+    <body>	
       <div class="container">
 	    <!-- making the heading !-->
         <div class="page-header" id="banner">
@@ -27,7 +26,7 @@
 		<div class="row">
           <div class="col-lg-12"
             <div class="well">
-              <form class="bs-example form-horizontal" action="scripts/send_events.php" method="post" id="basic_form">
+              <form class="bs-example form-horizontal" action="scripts/send_basic_message.php" method="post" id="basic_form" enctype="multipart/form-data">
                 <fieldset>    
 				  <div class="form-group">
                     <label for="department_list" class="col-lg-2 control-label">Send to:</label>
@@ -69,24 +68,24 @@
                   </div> 
                   
                   <div class="form-group">                                                                                                     
-                    <label ><input type="checkbox"  name="partner" id="partner"/> Bring a partner</label>
+                    <label ><input type="checkbox" value="partner"  name="check_list[]" id="partner"/> Bring a partner</label>
                   </div>
                   
                   <div class="form-group">                                                                                                     
-                    <label ><input type="checkbox"  name="diet" id="diet"/> Dietary Requirements</label>
+                    <label ><input type="checkbox" value="diet" name="check_list[]" id="diet"/> Dietary Requirements</label>
                   </div>                                   
                   
                   <div class="form-group">                                                                                                     
-                    <label ><input type="checkbox"  name="driver" id="driver"/> Good Fellas</label>
+                    <label ><input type="checkbox" value="driver"  name="check_list[]" id="driver"/> Good Fellas</label>
                   </div>
                   
+                  <input type="hidden" value="true" name="is_event" id="is_event" />
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">                      
                       <button type="submit" class="btn btn-primary" id="btn_submit" name="btn_submit">Submit</button> 
 					   <button type="reset" class="btn btn-default" id="btn_cancel" name="btn_cancel">Cancel</button> 
                     </div>
-                  </div>
-                  
+                  </div>                  
                 </fieldset>
               </form>
             </div>
