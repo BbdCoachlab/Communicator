@@ -1,12 +1,8 @@
 <?php
+include("connectionScript.php");
 function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate, $group){
     //connecting to the server and database
-    $serverName = '(localdb)\Projects';
-    $connOptions = array('AttachDBFileName'=>'C:\Users\Bandile\AppData\Local\Microsoft\VisualStudio\SSDT\v11.0\CommunicatorDB\CommunicatorDB.mdf','Database'=>'CommunicatorDB');
-    $conn = sqlsrv_connect($serverName, $connOptions);
-    if ($conn === false){
-        die("Connection to Database failed: Make sure the server and database addresses are correct");
-    }
+    connectToDB();
     
     
     //Inserting a user into the database

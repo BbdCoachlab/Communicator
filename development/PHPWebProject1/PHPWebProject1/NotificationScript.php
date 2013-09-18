@@ -1,5 +1,5 @@
 <?php
-include "connectionScript.php";
+include("connectionScript.php");
 function addNotification($id_notification, $subject, $image, $message, $rsvp_type, $expiry_date,$target_departments){
     connectToDB();
     //Inserting a notification into the database
