@@ -5,7 +5,7 @@ function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate
     
     //Inserting a user into the database
     $insertQuery = "INSERT INTO [User] (id_user, name, surname, email, profile_pic_url, birthdate) 
-                    VALUES (?,?,?,?,?,?)";
+                    VALUES (?,?,?,?,?,?);";
     $insertStatement = sqlsrv_query($conn, $insertQuery, array($id_user, $name, $surname, $email, $profile_pic_url, $birthdate));
     if($insertStatement===false){
         echo "User insertion failed";
@@ -33,7 +33,7 @@ function isUser($id_user){
     $conn = connectToDB();
     //check if user is in database
     $testQuery = "SELECT * FROM [User] 
-                  WHERE id_user = ?";
+                  WHERE id_user = ?;";
     $testStatement = sqlsrv_query($conn,$testStatement,array($id_user));
     if($testStatement === false){
         //Free the statement and close the database connection
@@ -59,7 +59,7 @@ function firstFiveBirthdays(){
     //select first five birthdays
     //date name surname department
     $selectQuery = "SELECT TOP 5 id_user, birthdate, name, surname FROM [User]
-                    WHERE birthdate = ?";
+                    WHERE birthdate = ?;";
     $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
     if ($selectStatement === false)
     {
@@ -84,7 +84,55 @@ function firstFiveBirthdays(){
     return json_encode($outputarray);
 }
 
-//getUser
+//retrieve all birthdays
+function getAllBirthdays()
+{
+	//connect to the server
+    $today = date("m/d/Y");
+    $conn = connectToDB();
+    //select first five birthdays
+    //date name surname department
+    $selectQuery = "SELECT id_user, birthdate, name, surname FROM [User]
+                    WHERE birthdate = ?;";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
+    if ($selectStatement === false)
+    {
+        sqlsrv_free_stmt($selectStatement);
+        sqlsrv_close($conn);
+    	return null;
+    }
+    $outputarray = array();
+    $userDepartmentListNames = array();
+    while ($results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC))
+    {
+        $userDepartmentListIDs = getUserDeparmentList($conn, $results['id_user']);
+        for ($i = 0; $i < count($userDepartmentListIDs); $i++)
+        {
+            array_push($userDepartmentListNames,getDepartmentName($conn,$userDepartmentListIDs[$i]));
+        }
+        array_push($results,array("departments"=>$userDepartmentListNames));
+        array_push($outputarray, json_encode($results));
+    }
+    sqlsrv_free_stmt($selectStatement);
+    sqlsrv_close($conn);
+    return json_encode($outputarray);
+}
+
+//get user name and surname
+function getUserNameAndSurname($conn, $id_user)
+{
+	$selectQuery = "SELECT name, surname WHERE id_user = ?;";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_user));
+    if ($selectStatement===false)
+    {
+    	sqlsrv_free_stmt($selectStatement);
+        return null;
+    }
+    $outputarray = sqlsrv_fetch_array($selectStatement);
+    sqlsrv_free_stmt($selectStatement);
+    return $outputarray;
+}
+
 //remove user
 //update user
 

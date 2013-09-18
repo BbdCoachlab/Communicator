@@ -95,5 +95,79 @@ function clearNominees( )
     return "succesfull";
 }
 
+//return Category leader user IDs
+function getLeaderIDs($conn)
+{
+    $outputarray = array();
+    //Select category leader in category 1
+    $selectQuery1 = "SELECT User_id_user, MAX(categpry_1) FROM [Nominee];";
+    //Select category leader in category 1
+    $selectQuery2 = "SELECT User_id_user, MAX(categpry_2) FROM [Nominee];";
+    //Select category leader in category 1
+    $selectQuery3 = "SELECT User_id_user, MAX(categpry_3) FROM [Nominee];";
+    
+    //process select query 1
+    $selectStatement = sqlsrv_query($conn, $selectQuery1);
+    if ($selectStatement === false)
+    {
+        array_push($outputarray,null);
+        sqlsrv_free_stmt($selectStatement);
+    }else{
+        $catergory1LeaderID = sqlsrv_fetch_array($selectStatement);
+        array_push($outputarray,$catergory1LeaderID[0]);
+        sqlsrv_free_stmt($selectStatement);
+    }
+    
+    //process select query 2
+    $selectStatement = sqlsrv_query($conn, $selectQuery2);
+    if ($selectStatement === false)
+    {
+        array_push($outputarray,null);
+        sqlsrv_free_stmt($selectStatement);   	
+    }else{
+        $catergory1LeaderID = sqlsrv_fetch_array($selectStatement);
+        array_push($outputarray,$catergory1LeaderID[0]);
+        sqlsrv_free_stmt($selectStatement);
+    }
+    
+    //process select query 3
+    $selectStatement = sqlsrv_query($conn, $selectQuery3);
+    if ($selectStatement === false)
+    {
+        array_push($outputarray,null);
+        sqlsrv_free_stmt($selectStatement);   	
+    }else{
+        $catergory1LeaderID = sqlsrv_fetch_array($selectStatement);
+        array_push($outputarray,$catergory1LeaderID[0]);
+        sqlsrv_free_stmt($selectStatement);
+    }
+    
+    sqlsrv_close($conn);
+    return $outputarray;
+}
+
+//get the nominee category leaders
+function getCategoryLeaders()
+{
+	//connect to the database
+    $conn = connectToDB();
+    //retrieve the leader IDs
+    $leaderIDs = getLeaderIDs($conn);
+    $outputArray = array();
+    for ($i = 0; $i < count($leaderIDs); $i++)
+    {
+        $leaderDepartmentListIDs = getUserDeparmentList($conn, $leaderIDs[$i]);
+        $leaderDepartmentListNames = array();
+        for ($j = 0; $j < count($leaderDepartmentListIDs); $j++)
+        {
+            array_push($leaderDepartmentListNames,getDepartmentName($conn,$leaderDepartmentListIDs[$j]));
+        }
+        $leaderNameAndSurname = getUserNameAndSurname($conn,$leaderIDs[$i]);
+        array_push($leaderNameAndSurname,$leaderDepartmentListNames);
+        array_push($outputArray, $leaderNameAndSurname);
+    }
+    
+}
+
 //return nominee values
 ?>
