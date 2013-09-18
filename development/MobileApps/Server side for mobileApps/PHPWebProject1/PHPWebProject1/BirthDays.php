@@ -3,11 +3,8 @@
 require 'ConDb.php';
 $ev = new BirthDays();
 $ev ->bday();
-
-
 class BirthDays
 {
-
 
 public function bday()
 {

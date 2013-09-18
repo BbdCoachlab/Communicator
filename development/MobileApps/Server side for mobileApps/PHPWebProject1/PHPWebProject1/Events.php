@@ -1,5 +1,5 @@
 <?php
-
+require 'ConDb.php';
 $even = new Events();
 $even ->event();
 
@@ -10,7 +10,7 @@ class Events
 public function event()
 {
 
-    $db = new conectDB();
+    $db = new conectDB(); 
     $con =  $db->Opencon();
     // echo("one");
     // events table is still to be added to the database.

@@ -1,17 +1,14 @@
 <?php
 
-//echo("In page");
+$note = '';
 require 'ConDb.php';
 $ev = new notification();
 $ev ->notify();
 
 class notification
 {
-   
    public function notify()
    {
-     //  echo("In notify");
-       
       $db = new conectDB();
       $con =  $db->Opencon();
      // echo("one");
@@ -27,17 +24,15 @@ class notification
               // echo("ok");
                 while($note = sqlsrv_fetch_array($result))
                 {
+                    $notification = json_encode($note);
                   
-                    $json = json_encode($note);
-                    echo(   $json);
-                  //  $json = json_encode($result);
-                    //echo($result."Itumeleneng");
-                   
                 }
+                
             }
           sqlsrv_close($con);
+          echo(json_encode(('['.$notification.']')));  
   }
-   
 }
+
 
 ?>

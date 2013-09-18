@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <script src="jquery-1.10.2.min.js" ></script>
+    <title></title>
+</head>
+<body>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             /* call the php that has the php array which is json_encoded */
+             $.getJSON('./Notification.php', function (data) {
+                 /* data will hold the php array as a javascript object */
+                 alert(data);
+                 // if you want to access the Json using index , you will specify the index , Eg. data[1]...(For Tshepiso)
+
+                 });
+             });
+         
+</script>
+</body>
+</html>
+
+

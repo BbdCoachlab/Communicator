@@ -32,4 +32,12 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="jquery-1.10.2.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="tes.html">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
 </Project>
