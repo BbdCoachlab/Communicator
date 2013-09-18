@@ -1,34 +1,29 @@
 <!-- include the menu bar !-->
 <?php 
-    include('menu.php'); 
-    include('scripts/check_logged_in.php');
+include('menu.php'); 
+include('scripts/check_logged_in.php');
 ?>
 
 <!DOCTYPE html>
-<head>
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery_validation.js"></script>
-    <script src="js/basic_form_validation.js"></script>
-  </head>
+    <head>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery_validation.js"></script>
+        <script src="js/basic_form_validation.js"></script>
+      </head>
   <html lang="en">
 	
     <body>
-		
-      <div class="container">
-	    <!-- the heading !-->
-
+	
       <div class="container">
 	    <!-- making the heading !-->
-
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
-
-              <h1>Awards</h1>            
-
+			<h1>Awards</h1>            
             </div>
           </div>
         </div>
+<<<<<<< HEAD
 		
 		<div class="row">
           <div class="col-lg-12">
@@ -76,6 +71,11 @@
           </div>		
 	    </div>
       </div>		
+=======
+	
+		<?php include('baseform.php'); ?>
+		
+>>>>>>> upstream/master
 	  </div>
      </div>
      <?php include('scripts/check_message_success.php'); ?>

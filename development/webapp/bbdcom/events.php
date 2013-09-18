@@ -22,7 +22,10 @@
             </div>
           </div>
         </div>
+	
+		<?php include('baseform.php'); ?>
 		
+<<<<<<< HEAD
 		<div class="row">
           <div class="col-lg-12"
             <div class="well">
@@ -93,6 +96,8 @@
           </div>		
 	    </div>
       </div>
+=======
+>>>>>>> upstream/master
 	  </div>
       <?php include('scripts/check_message_success.php'); ?>
     </body>
