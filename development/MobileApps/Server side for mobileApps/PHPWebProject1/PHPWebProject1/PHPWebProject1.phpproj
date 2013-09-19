@@ -3,18 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Name>PHPWebProject1</Name>
-    <ProjectGuid>5c230693-826b-4bb0-a015-da8c79e08670</ProjectGuid>
+    <ProjectGuid>89c981d1-d503-47b8-a2b7-00a4da8db277</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>PHPWebProject1</RootNamespace>
     <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>PHPWebProject1</AssemblyName>
-    <IISProjectUrl>http://localhost:53331/</IISProjectUrl>
-    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-    <Server>IISExpress</Server>
-    <PublishEvent>None</PublishEvent>
-    <PHPDevAutoPort>True</PHPDevAutoPort>
-    <PHPDevPort>20440</PHPDevPort>
+    <IISProjectUrl>http://localhost:21235/</IISProjectUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -23,29 +18,17 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="connectionScript.php">
+    <Compile Include="BirthDays.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DepartmentScript.php">
+    <Compile Include="ConDb.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Department_Note_UserScript.php">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Department_UserScript.php">
+    <Compile Include="Events.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="index.php" />
-    <Compile Include="NomineeScript.php">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Note_DepartmentScript.php">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="NotificationScript.php">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserScript.php">
+    <Compile Include="Notification.php">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

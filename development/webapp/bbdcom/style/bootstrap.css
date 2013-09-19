@@ -65,8 +65,19 @@ h1 {
   font-size: 2em;
   color: #D80000 ;
   font-weight:bolder;
+ }
 
-}
+h1:before {
+    content: " ";  
+    float: left;  
+    position: relative;  
+    top: 2px;  
+    background: url(../images/bbdlogo2.png); 
+    background-repeat:no-repeat; 
+    display: block;  
+    width:120px;
+    height:60px; 
+  }
 
 abbr[title] {
   border-bottom: 1px dotted;
@@ -160,6 +171,15 @@ textarea {
   font-size: 100%;
 }
 
+.loginBackground{
+	float:right;
+	width:170px;
+	height:170px;
+	/*margin-top: 200px;
+	margin-right:90px;
+    background-image:url(images/bday2.jpg);
+	background-repeat:no-repeat;;*/
+}
 button,
 input {
   line-height: normal;
@@ -488,6 +508,8 @@ h3,
 h4,
 .h4 {
   font-size: 19px;
+  font-weight:bold;
+  
 }
 
 h5,
@@ -497,7 +519,9 @@ h5,
 
 h6,
 .h6 {
-  font-size: 13px;
+  font-size: 15px;
+  color:white;
+  font-weight:bolder;
 }
 
 h1 small,
@@ -5131,4 +5155,9 @@ td.visible-print {
 
 .affix {
   position: fixed;
+}
+
+
+.error {
+    color:#ff0039;
 }
