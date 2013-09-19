@@ -96,7 +96,7 @@ function clearNominees( )
 }
 
 //return Category leader user IDs
-function getLeaderIDs($conn)
+function getLeaderIDsAndCategories($conn)
 {
     $outputarray = array();
     //Select category leader in category 1
@@ -113,8 +113,8 @@ function getLeaderIDs($conn)
         array_push($outputarray,null);
         sqlsrv_free_stmt($selectStatement);
     }else{
-        $catergory1LeaderID = sqlsrv_fetch_array($selectStatement);
-        array_push($outputarray,$catergory1LeaderID[0]);
+        $catergoryLeaderID = sqlsrv_fetch_array($selectStatement);
+        array_push($outputarray,array($catergoryLeaderID[0],"category_1"));
         sqlsrv_free_stmt($selectStatement);
     }
     
@@ -125,8 +125,8 @@ function getLeaderIDs($conn)
         array_push($outputarray,null);
         sqlsrv_free_stmt($selectStatement);   	
     }else{
-        $catergory1LeaderID = sqlsrv_fetch_array($selectStatement);
-        array_push($outputarray,$catergory1LeaderID[0]);
+        $catergoryLeaderID = sqlsrv_fetch_array($selectStatement);
+        array_push($outputarray,array($catergoryLeaderID[0],"category_2"));
         sqlsrv_free_stmt($selectStatement);
     }
     
@@ -137,8 +137,8 @@ function getLeaderIDs($conn)
         array_push($outputarray,null);
         sqlsrv_free_stmt($selectStatement);   	
     }else{
-        $catergory1LeaderID = sqlsrv_fetch_array($selectStatement);
-        array_push($outputarray,$catergory1LeaderID[0]);
+        $catergoryLeaderID = sqlsrv_fetch_array($selectStatement);
+        array_push($outputarray,array($catergoryLeaderID[0],"category_3"));
         sqlsrv_free_stmt($selectStatement);
     }
     
@@ -154,16 +154,17 @@ function getCategoryLeaders()
     //retrieve the leader IDs
     $leaderIDs = getLeaderIDs($conn);
     $outputArray = array();
+    //get the names, surnames and departments of the category leaders 
     for ($i = 0; $i < count($leaderIDs); $i++)
     {
-        $leaderDepartmentListIDs = getUserDeparmentList($conn, $leaderIDs[$i]);
+        $leaderDepartmentListIDs = getUserDeparmentList($conn, $leaderIDs[$i][0]);
         $leaderDepartmentListNames = array();
         for ($j = 0; $j < count($leaderDepartmentListIDs); $j++)
         {
             array_push($leaderDepartmentListNames,getDepartmentName($conn,$leaderDepartmentListIDs[$j]));
         }
         $leaderNameAndSurname = getUserNameAndSurname($conn,$leaderIDs[$i]);
-        array_push($leaderNameAndSurname,$leaderDepartmentListNames);
+        array_push($leaderNameAndSurname,$leaderDepartmentListNames,$leaderIDs[$i][1]);
         array_push($outputArray, $leaderNameAndSurname);
     }
     
