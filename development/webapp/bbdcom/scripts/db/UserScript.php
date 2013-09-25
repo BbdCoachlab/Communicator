@@ -1,57 +1,44 @@
 <?php
-function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate, $group){
+function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate, $department){
     //connecting to the server and database
-    $serverName = '(localdb)\Projects';
-    $connOptions = array('AttachDBFileName'=>'C:\Users\Bandile\AppData\Local\Microsoft\VisualStudio\SSDT\v11.0\CommunicatorDB\CommunicatorDB.mdf','Database'=>'CommunicatorDB');
-    $conn = sqlsrv_connect($serverName, $connOptions);
-    if ($conn === false){
-        die("Connection to Database failed: Make sure the server and database addresses are correct");
-    }
-    
+    $conn = connectToDB();
     
     //Inserting a user into the database
-    $insertQuery = "INSERT INTO [User] (id_user, name, surname, email, profile_pic_url, birthdate) VALUES ('".$id_user."', '".$name."', '".$surname."', '".$email."', '".$profile_pic_url."', '".$birthdate."')";
-    $insertStatement = sqlsrv_query($conn,$insertQuery);
+    $insertQuery = "INSERT INTO [User] (id_user, name, surname, email, profile_pic_url, birthdate) 
+                    VALUES (?,?,?,?,?,?)";
+    $insertStatement = sqlsrv_query($conn, $insertQuery, array($id_user, $name, $surname, $email, $profile_pic_url, $birthdate));
     if($insertStatement===false){
         echo "User insertion failed";
         die(print_r(sqlsrv_errors(), true));
     }
-    //free statement
+    //free statement and close database
     sqlsrv_free_stmt($insertStatement);
-    
-    
-    /*verification: print out id and name of added user*/
-    $testQuery = "SELECT * FROM [User] WHERE id_user =".$id_user.";";
-    $testStatement = sqlsrv_query($conn,$testStatement);
-    if($testStatement === false){
-        echo "test query could not connect";
-        die(print_r(sqlsrv_errors(), true));
-    } else {
-        while($row = sqlsrv_fetch_array($testStatement, SQLSRV_FETCH_ASSOC)){
-            echo $row["id_user"]." , ".$row["name"];
-        }
+    //check if user's department exists if not add the department
+    if (!isDepartment($conn, $department))
+    {
+    	addDepartment($conn, $department);
     }
-    /* Free the statement and connection resources. */
-    sqlsrv_free_stmt($testStatement);
-    
-    //close database connection
+    //get department id
+    $id_department = getDepartmentID($conn, $department);
+    //link user and department
+    linkDepartmentAndUser($conn, $id_department, $id_user);
+    //increase department size
+    increaseDepartmentSize($conn, $id_department);
+    //close connection
     sqlsrv_close($conn);
 }
 
 function isUser($id_user){
-    //connecting to the database
-    $serverName = '(localdb)\Projects';
-    $connOptions = array('AttachDBFileName'=>'C:\Users\Bandile\AppData\Local\Microsoft\VisualStudio\SSDT\v11.0\CommunicatorDB\CommunicatorDB.mdf','Database'=>'CommunicatorDB');
-    $conn = sqlsrv_connect($serverName, $connOptions);
-    if ($conn === false){
-        die("Connection to Database failed: Make sure the server and database addresses are correct");
-    }
-    
-    
+    //connect to the server
+    $conn = connectToDB();
     //check if user is in database
-    $testQuery = "SELECT * FROM [User] WHERE id_user =".$id_user.";";
-    $testStatement = sqlsrv_query($conn,$testStatement);
+    $testQuery = "SELECT * FROM [User] 
+                  WHERE id_user = ?";
+    $testStatement = sqlsrv_query($conn,$testStatement,array($id_user));
     if($testStatement === false){
+        //Free the statement and close the database connection
+        sqlsrv_free_stmt($testStatement);
+        sqlsrv_close($conn);
         return false;
     } else {
         //Free the statement and close the database connection
@@ -62,6 +49,39 @@ function isUser($id_user){
     
     
     
+}
+
+//retreive first five birthdays
+function firstFiveBirthdays(){
+    //connect to the server
+    $today = date("m/d/Y");
+    $conn = connectToDB();
+    //select first five birthdays
+    //date name surname department
+    $selectQuery = "SELECT TOP 5 id_user, birthdate, name, surname FROM [User]
+                    WHERE birthdate = ?";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
+    if ($selectStatement === false)
+    {
+        sqlsrv_free_stmt($selectStatement);
+        sqlsrv_close($conn);
+    	return null;
+    }
+    $outputarray = array();
+    $userDepartmentListNames = array();
+    while ($results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC))
+    {
+        $userDepartmentListIDs = getUserDeparmentList($conn, $results['id_user']);
+        for ($i = 0; $i < count($userDepartmentListIDs); $i++)
+        {
+            array_push($userDepartmentListNames,getDepartmentName($conn,$userDepartmentListIDs[$i]));
+        }
+        array_push($results,array("departments"=>$userDepartmentListNames));
+        array_push($outputarray, json_encode($results));
+    }
+    sqlsrv_free_stmt($selectStatement);
+    sqlsrv_close($conn);
+    return json_encode($outputarray);
 }
 
 //getUser
