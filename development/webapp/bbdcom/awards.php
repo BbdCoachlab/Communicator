@@ -23,8 +23,6 @@ include('scripts/check_logged_in.php');
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-		
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
@@ -71,11 +69,6 @@ include('scripts/check_logged_in.php');
           </div>		
 	    </div>
       </div>		
-=======
-	
-		<?php include('baseform.php'); ?>
-		
->>>>>>> upstream/master
 	  </div>
      </div>
      <?php include('scripts/check_message_success.php'); ?>

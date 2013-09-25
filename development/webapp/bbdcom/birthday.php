@@ -22,7 +22,6 @@ include('menu.php');
             </div>
           </div>
         </div>
-<<<<<<< HEAD
 		<div class="row">
           <div class="col-lg-12">
             <div class="well">
@@ -68,8 +67,6 @@ include('menu.php');
           </div>
           </div>		
 	    </div>
-=======
->>>>>>> upstream/master
       </div>
      <?php include('scripts/check_message_success.php'); ?>
     </body>
