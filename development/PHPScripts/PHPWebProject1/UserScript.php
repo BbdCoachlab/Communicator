@@ -8,41 +8,60 @@ function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate
                     VALUES (?,?,?,?,?,?);";
     $insertStatement = sqlsrv_query($conn, $insertQuery, array($id_user, $name, $surname, $email, $profile_pic_url, $birthdate));
     if($insertStatement===false){
-        echo "User insertion failed";
+        echo "error UserScript.php : User insertion failed -> ";
         die(print_r(sqlsrv_errors(), true));
     }
-    //free statement and close database
+    //free statement
     sqlsrv_free_stmt($insertStatement);
+    
     //check if user's department exists if not add the department
-    if (!isDepartment($conn, $department))
+    if (!isDepartment($conn, $department)) //DepartmentScript.php
     {
-    	addDepartment($conn, $department);
+    	addDepartment($conn, $department); //DepartmentScript.php
     }
+    
     //get department id
-    $id_department = getDepartmentID($conn, $department);
-    //link user and department
-    linkDepartmentAndUser($conn, $id_department, $id_user);
+    $id_department = getDepartmentID($conn, $department); //DepartmentScript.php
+    
+    //link new user and (new)department
+    linkDepartmentAndUser($conn, $id_department, $id_user); //Department_UserScript.php
+    
     //increase department size
-    increaseDepartmentSize($conn, $id_department);
+    increaseDepartmentSize($conn, $id_department); //DepartmentScript.php
+    
     //close connection
     sqlsrv_close($conn);
+    return "adding user successful";
 }
 
 function isUser($id_user){
     //connect to the server
     $conn = connectToDB();
     //check if user is in database
-    $testQuery = "SELECT * FROM [User] 
+    $selectQuery = "SELECT * FROM [User] 
                   WHERE id_user = ?;";
-    $testStatement = sqlsrv_query($conn,$testStatement,array($id_user));
-    if($testStatement === false){
+    $selectStatement = sqlsrv_query($conn,$selectQuery,array($id_user));
+    if($selectStatement === false){
         //Free the statement and close the database connection
-        sqlsrv_free_stmt($testStatement);
-        sqlsrv_close($conn);
-        return false;
+        //sqlsrv_free_stmt($testStatement);
+        //sqlsrv_close($conn);
+        //return false;
+        echo "error UserScript.php : isUser query failed -> ";
+        die(print_r(sqlsrv_errors(), true));
+        
     } else {
-        //Free the statement and close the database connection
-        sqlsrv_free_stmt($testStatement);
+        $name = sqlsrv_fetch_array($selectStatement);
+        
+        //return false if user query is null
+        if ($name[1]==null)
+        {
+        	sqlsrv_free_stmt($selectStatement);
+            sqlsrv_close($conn);
+            return false;
+        }
+        
+        //free statement, close connection and return true
+        sqlsrv_free_stmt($selectStatement);
         sqlsrv_close($conn);
         return true;
     }
@@ -121,12 +140,12 @@ function getAllBirthdays()
 //get user name and surname
 function getUserNameAndSurname($conn, $id_user)
 {
-	$selectQuery = "SELECT name, surname WHERE id_user = ?;";
+	$selectQuery = "SELECT name, surname FROM [User] WHERE id_user = ?;";
     $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_user));
     if ($selectStatement===false)
     {
-    	sqlsrv_free_stmt($selectStatement);
-        return null;
+    	echo "error UserSript.php : retrieving user name and surname has failed -> ";
+        die(print_r(sqlsrv_errors(), true));
     }
     $outputarray = sqlsrv_fetch_array($selectStatement);
     sqlsrv_free_stmt($selectStatement);

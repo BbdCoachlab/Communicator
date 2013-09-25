@@ -1,32 +1,34 @@
 <?php
 function isDepartment($conn, $name){
-    //connecting to the database
-    $conn = connectToDB();
-    
     //check if department is in database
-    $testQuery = "SELECT TOP 1 * FROM Group 
+    $selectQuery = "SELECT TOP 1 * FROM [Department] 
                   WHERE name =?;";
-    $testStatement = sqlsrv_query($conn,$testStatement, array($name));
-    if($testStatement === false){
-        //Free the statement and close the database connection
-        sqlsrv_free_stmt($testStatement);
-        sqlsrv_close($conn);
-        return false;
+    $selectStatement = sqlsrv_query($conn,$selectQuery, array($name));
+    if($selectStatement === false){
+        //Free the statement
+        //sqlsrv_free_stmt($testStatement);
+        //return false;
+        echo "error DepartmentScript : isDepartment check statement has failed -> ";
+        die(print_r(sqlsrv_errors(), true));
     } else {
-        //Free the statement and close the database connection
-        sqlsrv_free_stmt($testStatement);
-        sqlsrv_close($conn);
+        //check if query result is null
+        $id_department = sqlsrv_fetch_array($selectStatement);
+        if ($id_department[0]==null)
+        {
+            sqlsrv_free_stmt($selectStatement);
+        	return false;
+        }
+        //free statemnet and return true
+        sqlsrv_free_stmt($selectStatement);
         return true;
     }
     
 }
 
 function addDepartment($conn, $name){
-    //connecting to the server and database
-    //$conn = connectToDB();
     //Inserting a department into the database
-    $insertQuery = "INSERT INTO [Department] (name, department_size) 
-                    VALUES (?, 0);";
+    $insertQuery = "INSERT INTO [Department] (name) 
+                    VALUES (?);";
     $insertStatement = sqlsrv_query($conn,$insertQuery, array($name));
     if($insertStatement===false){
         echo "department insertion failed";
@@ -34,29 +36,28 @@ function addDepartment($conn, $name){
     }
     //free statement and free statement
     sqlsrv_free_stmt($insertStatement);
-    sqlsrv_close($conn);
-    return "successful";
 }
 //retreive department size
 function departmentSize($conn, $id_department){
-    //Retrieve current size
+    //Retrieve current department size
     $selectQuery = "SELECT department_size 
                     FROM [Department] 
-                    WHERE id_deparment = ?;";
-    $statement = sqlsrv_query($conn, $selectQuery, array($id_department));
-    if ($statement===false)
+                    WHERE id_department = ?;";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
+    if ($selectStatement===false)
     {
+        echo "error DepartmentScript.php : retrieving the department size has failed -> ";
     	die(print_r(sqlsrv_errors(),true));
     }
-    $DepartmentSize = sqlsrv_fetch_array($statement);
-    sqlsrv_free_stmt($statement);
+    $DepartmentSize = sqlsrv_fetch_array($selectStatement);
+    //free statement and return department size
+    sqlsrv_free_stmt($selectStatement);
     return $DepartmentSize[0];
 }
 
 //increase department size
 function increaseDepartmentSize($conn, $id_department){
-    //connecting to the server
-    //$conn = connectToDB();
+    //retrieve current department size.
     $currentDepartmentSize = departmentSize($conn, $id_department);
     //set new department size
     $newDepartmentSize = $currentDepartmentSize + 1;
@@ -64,14 +65,14 @@ function increaseDepartmentSize($conn, $id_department){
     $updateQuery = "UPDATE Department 
                     SET department_size = ? 
                     WHERE id_department = ?";
-    $statement = sqlsrv_query($conn,$updateQuery,array($newDepartmentSize,$id_department));
-    if ($statement===false)
+    $updateStatement = sqlsrv_query($conn,$updateQuery,array($newDepartmentSize,$id_department));
+    if ($updateStatement===false)
     {
+        echo "error DepartmentScript.php : updating department size has failed -> ";
     	die(print_r(sqlsrv_errors(),true));
     }
-    sqlsrv_free_stmt($statement);
-    sqlsrv_close($conn);
-    return "succesfull";
+    //free statement
+    sqlsrv_free_stmt($updateStatement);
     
 }
 //retrieve the department id
@@ -81,15 +82,18 @@ function getDepartmentID($conn, $name)
     $selectQuery = "SELECT id_department 
                     FROM [Department] 
                     WHERE name = ?;";
-    $statement = sqlsrv_query($conn, $selectQuery, array($name));
-    if ($statement===false)
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($name));
+    if ($selectStatement===false)
     {
+        echo "error DepartmentScript.php : Fetching department id has failed -> ";
     	die(print_r(sqlsrv_errors(),true));
     }
-    $DepartmentID = sqlsrv_fetch_array($statement);
-    sqlsrv_free_stmt($statement);
+    $DepartmentID = sqlsrv_fetch_array($selectStatement);
+    //free statement and return department ID
+    sqlsrv_free_stmt($selectStatement);
     return $DepartmentID[0];
 }
+
 //retrieve the deparment name
 function getDepartmentName($conn, $id_department)
 {
@@ -97,13 +101,14 @@ function getDepartmentName($conn, $id_department)
     $selectQuery = "SELECT name 
                     FROM [Department] 
                     WHERE id_department = ?;";
-    $statement = sqlsrv_query($conn, $selectQuery, array($id_department));
-    if ($statement===false)
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
+    if ($selectStatement===false)
     {
+        echo "error DepartmentScript.php : retrieving department name has failed -> ";
     	die(print_r(sqlsrv_errors(),true));
     }
-    $DepartmentName = sqlsrv_fetch_array($statement);
-    sqlsrv_free_stmt($statement);
+    $DepartmentName = sqlsrv_fetch_array($selectStatement);
+    sqlsrv_free_stmt($selectStatement);
     return $DepartmentName[0];
 }
 
@@ -114,7 +119,7 @@ function getAllDepartments()
     $conn = connectToDB();
     
     //check if department is in database
-    $selectQuery = "SELECT name FROM Group;";
+    $selectQuery = "SELECT name FROM [Department];";
     $selectStatement = sqlsrv_query($conn,$testStatement);
     if($selectStatement === false){
         //Free the statement and close the database connection

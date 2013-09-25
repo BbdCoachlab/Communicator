@@ -6,20 +6,23 @@ require "DepartmentScript.php";
 require "NomineeScript.php";
 require "Note_DepartmentScript.php";
 require "Department_UserScript.php";
-require "Department_Note_UserScript";
+require "Department_Note_UserScript.php";
 /*Testing user*/
-//addUser("1234567899","Lucy", "Liu",null,null,"9/15/2013",null);
-//$output = isUser("1234567899");
-//echo $output;
-//$testarr = firstFiveBirthdays();
-//var_dump(json_decode($testarr));
-//$output = json_decode($testarr,true);
-//var_dump($output);
-//$name = $output['name'];
-//echo $name;
 
-//Testing Notification
-//$output = addNotification(5,"Testingmore","http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png","this is a message",0,"12/12/2013",null);
+//$output1 = addUser("7","William","Brander","beer_ninja@gmail.com","http7","06/01/1941","department1");
+//echo $output1;
+
+//$output3 = addUser("8","Andre","3000","doctor_dre@gmail.com","http8","06/01/2000","department5");
+//echo $output3;
+
+//$output2 = isUser("7");
+//echo $output2;
+
+
+
+/*Testing Notification*/
+
+//$output = addNotification(10,"Subject1","http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png","this is a message",0,"12/12/2013","department1", "birthday");
 //echo $output;
 
 //testing department
