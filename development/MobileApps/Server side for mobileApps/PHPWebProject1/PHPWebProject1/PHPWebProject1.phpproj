@@ -31,6 +31,9 @@
     <Compile Include="Notification.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="readimage.php">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="jquery-1.10.2.min.js">
@@ -39,5 +42,8 @@
     <Content Include="tes.html">
       <SubType>Content</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images" />
   </ItemGroup>
 </Project>

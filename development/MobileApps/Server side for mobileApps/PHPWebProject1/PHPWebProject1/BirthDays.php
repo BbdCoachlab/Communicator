@@ -9,6 +9,9 @@ class BirthDays
 public function bday()
 {
 
+    
+    
+    
       $db = new conectDB();
       $con =  $db->Opencon();
      // echo("one");

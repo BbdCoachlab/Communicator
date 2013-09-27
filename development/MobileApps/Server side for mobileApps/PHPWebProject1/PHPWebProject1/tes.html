@@ -10,13 +10,21 @@
              /* call the php that has the php array which is json_encoded */
              $.getJSON('./Notification.php', function (data) {
                  /* data will hold the php array as a javascript object */
-                 alert(data);
-                 // if you want to access the Json using index , you will specify the index , Eg. data[1]...(For Tshepiso)
+                
+                 var img = new Image;
+                 var x = eval(data);
+              
 
+                 alert(x.image);
+                               
+                 document.write('<br><br><br>Your image : <img src="' + x.image + '" height="100" width="200"/>');
+               
                  });
-             });
+         });
+        
          
 </script>
+  
 </body>
 </html>
 

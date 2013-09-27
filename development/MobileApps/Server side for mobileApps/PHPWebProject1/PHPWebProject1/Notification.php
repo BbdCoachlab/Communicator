@@ -24,13 +24,16 @@ class notification
               // echo("ok");
                 while($note = sqlsrv_fetch_array($result))
                 {
-                    $notification = json_encode($note);
+                    $notification = $note;
+                  
                   
                 }
                 
             }
           sqlsrv_close($con);
-          echo(json_encode(('['.$notification.']')));  
+          echo (json_encode($notification));
+              //str_replace('\\','/',json_encode($notification));
+       
   }
 }
 
