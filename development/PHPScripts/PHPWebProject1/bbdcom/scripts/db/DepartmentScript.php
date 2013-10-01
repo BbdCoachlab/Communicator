@@ -120,12 +120,11 @@ function getAllDepartments()
     
     //check if department is in database
     $selectQuery = "SELECT name FROM [Department];";
-    $selectStatement = sqlsrv_query($conn,$testStatement);
+    $selectStatement = sqlsrv_query($conn,$selectQuery);
     if($selectStatement === false){
         //Free the statement and close the database connection
-        sqlsrv_free_stmt($selectStatement);
-        sqlsrv_close($conn);
-        return null;
+        echo "error DepartmentScript.php : retrieving all departments failed ->";
+    	die(print_r(sqlsrv_errors(),true));
     }
     $outputarray = array();
     while ($result = sqlsrv_fetch_array($selectStatement))

@@ -23,30 +23,157 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="connectionScript.php">
+    <Compile Include="bbdcom\awards.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DepartmentScript.php">
+    <Compile Include="bbdcom\baseform.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Department_Note_UserScript.php">
+    <Compile Include="bbdcom\birthday.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Department_UserScript.php">
+    <Compile Include="bbdcom\dashboard.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="index.php" />
-    <Compile Include="NomineeScript.php">
+    <Compile Include="bbdcom\events.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Note_DepartmentScript.php">
+    <Compile Include="bbdcom\index.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="NotificationScript.php">
+    <Compile Include="bbdcom\menu.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserScript.php">
+    <Compile Include="bbdcom\scripts\check_logged_in.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bbdcom\scripts\check_message_success.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\connectionScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\DepartmentScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\Department_Note_UserScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\Department_UserScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\index.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\NomineeScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\Note_DepartmentScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\NotificationScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\db\UserScript.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\department_list.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\login.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\logout.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\send_awards.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\send_basic_message.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\send_birthday.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\send_events.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\upload_image.php">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bbdcom" />
+    <Folder Include="bbdcom\js" />
+    <Folder Include="bbdcom\images" />
+    <Folder Include="bbdcom\style" />
+    <Folder Include="bbdcom\uploads" />
+    <Folder Include="bbdcom\scripts" />
+    <Folder Include="bbdcom\scripts\db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bbdcom\images\award2.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\bbd-symbol.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\bbd-symbol1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\bbd.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\bbdlogo2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\bbdlogo3.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\bday2.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\comms.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\env.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\envelop.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\event2.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\log.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\posts.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\yammer1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\yammer2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\images\yammerPic.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\js\basic_form_validation.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\js\jquery.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\js\jquery_validation.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\js\style_script.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\style\bootstrap.css">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
 </Project>
