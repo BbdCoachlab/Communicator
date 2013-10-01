@@ -1,17 +1,11 @@
 <?php
-
 require 'ConDb.php';
 $ev = new BirthDays();
 $ev ->bday();
 class BirthDays
 {
-
 public function bday()
 {
-
-    
-    
-    
       $db = new conectDB();
       $con =  $db->Opencon();
      // echo("one");
@@ -25,20 +19,15 @@ public function bday()
             }
             else
             {
-              // echo("ok");
+           
                 while($note = sqlsrv_fetch_array($result))
-                {
-                  
+                {                
                     $json = json_encode($note);
-                    echo($json);
-                  //  $json = json_encode($result);
-                    //echo($result."Itumeleneng");
-                   
+                  //  echo($json);
+                             
                 }
             }
           sqlsrv_close($con);
-
-
 }
 
 }
