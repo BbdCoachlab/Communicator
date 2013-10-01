@@ -5,8 +5,11 @@
 ?>
 
 <!DOCTYPE html>
-
-<html lang="en">
+<head>
+    <html lang="en">
+    <script src="js/jquery.js"></script>
+    <script src="js/style_script.js"></script>
+</head>
     <body>
         <div class="container">
             <div class="page-header" id="banner">
@@ -53,6 +56,7 @@
                     </div>          
                 </div>
             </div>
-        </div>
+        </div>        
     </body>
+    <?php include('scripts/check_message_success.php'); ?>
 </html>
