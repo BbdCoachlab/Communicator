@@ -1,4 +1,4 @@
-package com.example.logintest;
+package com.example.bbdcommunicator;
 
 import android.os.Bundle;
 import android.view.Menu;
