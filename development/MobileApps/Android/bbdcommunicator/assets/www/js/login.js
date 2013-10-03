@@ -1,66 +1,86 @@
-$(document).ready(function(){
-	var ref;
-	var jsonUser;
+$(function()
+{
+	/*
+	*browser is the in app web browser used for yammer oauth, it is global becuase it is
+	*used in several methods in this script file
+	*/
+	var broswer;
+		
 	function checkURL(event)
-	{
+	{		
 		var url = event.url;
 		var target = "http://localhost/bbdcom/index.php"
-		if(url.indexOf(target+"?error") >-1){
-			alert("An error occurred please try again");
-			browserClose(event);			
+		
+		//check if yammer returns an error
+		if(url.indexOf(target+"?error") >-1)
+		{			
+			browserClose(event);
+			window.location.replace("index.html");
+			alert("An error occurred please try again");			
 		}
 		
-		if(event.url.indexOf(target+"?code") >-1){					
+		//check if yammer returns an access code
+		else if(event.url.indexOf(target+"?code") >-1)
+		{										
 			var param = url.split("?code=");							
 			var code = param[1];			
-			getUserInfo(code, event)										
+			getUserInfo(code, event);
+			browserClose(event);										
 		}
-	}
-	
-	function browserError(event)
-	{
-		browserClose(event);
-		alert("An error occurred. Please try again.");
-	}
+		
+		else if($.trim(event.type) == "loaderror")
+		{			
+			browserClose(event);
+			window.location.replace("index.html");
+			alert("An error occurred. Please try again. \n"+event.message);
+		}		
+	}	
 	
 	function browserClose(event)
 	{
-		ref.close();
-		ref.removeEventListener('loadstart', checkURL);
-        ref.removeEventListener('loadstop', checkURL);
-        ref.removeEventListener('loaderror', browserError);
-        ref.removeEventListener('exit', bowserClose);
-			
+		broswer.close();
+		broswer.removeEventListener('loadstart', checkURL);
+        broswer.removeEventListener('loadstop', checkURL);
+        broswer.removeEventListener('loaderror', checkURL);
+        broswer.removeEventListener('exit', browserClose);		
 	}
-
-	$("#login").click(function(){				 
-		 ref = window.open('https://www.yammer.com/dialog/oauth?client_id=nEjhbfN94g3w2nAYczxEw&redirect_uri=', '_blank', 'location=no');	
-         ref.addEventListener('loadstart', checkURL);
-         ref.addEventListener('loadstop', checkURL);
-         ref.addEventListener('loaderror', browserError);
-         ref.addEventListener('exit', browserClose);	         
-	});
 	
 	function getUserInfo(code, event)
-	{
+	{			
 		$.ajax({
-		type: "POST",
-		url: "https://www.yammer.com/oauth2/access_token.json?client_id=nEjhbfN94g3w2nAYczxEw&client_secret=lRzKMLwXRtQWvVik4wp7TxwTsqWsLvxD8dEIsT1xryU&code="+code,	
-		success: function(jsonObj, status)
-				{
-					if($.trim(status) == "success")
+			type: "POST",
+			dataType: 'json',
+			url: "https://www.yammer.com/oauth2/access_token.json?client_id=nEjhbfN94g3w2nAYczxEw&client_secret=lRzKMLwXRtQWvVik4wp7TxwTsqWsLvxD8dEIsT1xryU&code="+code,	
+			success: function(jsonObj, status)
 					{
-						//alert(JSON.stringify(jsonObj));
-						window.location.replace("home.html");
-						browserClose(event);
-					}
-					else
-					{
-						alert(status);
-						console.log("here");
-						ref.browserClose(event);
-					}
-				}		
-});
+						if($.trim(status) == "success")
+						{												
+							var obj = eval(jsonObj);
+							var network = obj.network.name;
+							if($.trim(network) == "bbd.co.za")
+							{							
+								window.location.replace("home.html");													
+							}
+							else
+							{								
+								window.location.replace("index.html");
+								alert("You are not authorized to use this application.");
+							}						
+						}
+						else
+						{
+							alert(status);														
+							window.location.replace("index.html");
+						}
+					}		
+		});
 	}
+	
+	$("#login").click(function(){					
+		broswer = window.open('https://www.yammer.com/dialog/oauth?client_id=nEjhbfN94g3w2nAYczxEw&redirect_uri=', '_blank', 'location=no');	
+		broswer.addEventListener('loadstart', checkURL);
+		broswer.addEventListener('loadstop', checkURL);
+		broswer.addEventListener('loaderror', checkURL);
+		broswer.addEventListener('exit', browserClose);	         
+	});
 });
