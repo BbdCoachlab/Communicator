@@ -1,6 +1,5 @@
 (function(window,$) {
-	
-	
+		
 	var loginModel = function LoginModel(){	
 		var browser;				
 	}
