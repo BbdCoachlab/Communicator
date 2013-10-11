@@ -44,8 +44,7 @@ When the HR/Comms team logs in to send a message to inform the company about som
 
 ##CONCLUSION  
 
-The remaining requirements of the BBD communicator will be updated as we keep proceeding further with the project. For now, the team will concentrate on getting the birthday function working from end to end, starting from the web app to the mobile app, using only android. 
-
+The remaining requirements of the BBD communicator will be updated as we keep proceeding further with the project. For now, the team will concentrate on getting the birthday function working from end to end, starting from the web app to the mobile app, using only android.
 
 
 
