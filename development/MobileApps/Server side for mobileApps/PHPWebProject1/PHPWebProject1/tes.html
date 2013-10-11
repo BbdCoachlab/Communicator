@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <script src="jquery-1.10.2.min.js" ></script>
+    <title></title>
+</head>
+<body>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             /* call the php that has the php array which is json_encoded */
+             $.getJSON('./Notification.php', function (data) {
+                 /* data will hold the php array as a javascript object */
+                 var img = new Image;
+                 var x = eval(data);
+		 console.log(x);
+                 document.write('<br><br><br>Your image : <img src="' + x.image + '" height="100" width="200"/>');
+                 });
+         });
+</script>
+</body>
+</html>
+
+
