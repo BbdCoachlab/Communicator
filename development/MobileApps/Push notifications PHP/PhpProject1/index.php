@@ -16,7 +16,6 @@ $msg = array("price" => "R10000.00000000");
 $GC = new GCM();
 $GC->send_notification($reg, $msg);
 class GCM {
-
     /**
      * Sending Push Notification
      */
