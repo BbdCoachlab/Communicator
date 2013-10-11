@@ -13,9 +13,6 @@
  */
 $reg = array('APA91bEOgBoDleGaaEEPNgYldDriOxPvXJ5w1mILLC0ImtvBlr3iviJtmBGmT6iw7Cw5ZNZboeNnCRsUqQ7AcyYeGK2MsUYM8h6x8-MpHSV2HBJpBM7UHMU8DVra1gTtug9NWBRpmpgLyUlv9A4-PHAjKT3_dam_8A');
 $msg = array("price" => "R10000.00000000");
-
-
-
 $GC = new GCM();
 $GC->send_notification($reg, $msg);
 class GCM {
