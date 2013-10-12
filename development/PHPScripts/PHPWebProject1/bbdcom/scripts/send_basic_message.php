@@ -121,7 +121,7 @@ $message_type = $_POST['message_type'];
 
 //add to database
 $output1 = addNotification($subject,$image_path,$message,0,"12/12/2013",$department, $message_type);
-//echo $output1;
+var_dump($output1);
 
 
 header('Location: /bbdcom/dashboard.php');

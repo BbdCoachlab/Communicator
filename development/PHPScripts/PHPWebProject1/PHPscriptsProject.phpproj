@@ -44,6 +44,9 @@
     <Compile Include="bbdcom\menu.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bbdcom\scripts\birthday_list.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="bbdcom\scripts\check_logged_in.php">
       <SubType>Code</SubType>
     </Compile>
@@ -74,6 +77,9 @@
     <Compile Include="bbdcom\scripts\db\NotificationScript.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bbdcom\scripts\db\RegistrationID_Script.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="bbdcom\scripts\db\UserScript.php">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +90,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="bbdcom\scripts\logout.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\mobile_login.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bbdcom\scripts\RegistrationID.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="bbdcom\scripts\send_awards.php">
@@ -170,6 +182,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="bbdcom\js\style_script.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bbdcom\js\yammer_logout.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="bbdcom\style\bootstrap.css">

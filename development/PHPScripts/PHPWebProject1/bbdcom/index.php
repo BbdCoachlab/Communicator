@@ -35,7 +35,7 @@
                      background-size:cover;">
                              <h4>Login With Yammer</h4>
                             <fieldset>    
-                             <input type="button" class="btn btn-primary btn-lg"  onClick="window.location = 'https://www.yammer.com/dialog/oauth?client_id=nEjhbfN94g3w2nAYczxEw&redirect_uri=http://localhost/bbdcom/scripts/login.php';" value="Login"> 
+                             <input type="button" class="btn btn-primary btn-lg"  onClick="window.location = 'https://www.yammer.com/dialog/oauth?client_id=nEjhbfN94g3w2nAYczxEw&redirect_uri=http://localhost:53331/bbdcom/scripts/login.php';" value="Login"> 
                             </fieldset>
                         </form>
                         </div>

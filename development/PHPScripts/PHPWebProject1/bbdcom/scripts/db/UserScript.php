@@ -27,7 +27,7 @@ function addUser($id_user, $name, $surname, $email, $profile_pic_url, $birthdate
     linkDepartmentAndUser($conn, $id_department, $id_user); //Department_UserScript.php
     
     //increase department size
-    increaseDepartmentSize($conn, $id_department); //DepartmentScript.php
+    increaseDepartmentSize($conn, $id_department); //DepartmentScript.php //CHANGE LATER
     
     //close connection
     sqlsrv_close($conn);
@@ -42,10 +42,6 @@ function isUser($id_user){
                   WHERE id_user = ?;";
     $selectStatement = sqlsrv_query($conn,$selectQuery,array($id_user));
     if($selectStatement === false){
-        //Free the statement and close the database connection
-        //sqlsrv_free_stmt($testStatement);
-        //sqlsrv_close($conn);
-        //return false;
         echo "error UserScript.php : isUser query failed -> ";
         die(print_r(sqlsrv_errors(), true));
         
@@ -73,29 +69,30 @@ function isUser($id_user){
 //retreive first five birthdays
 function firstFiveBirthdays(){
     //connect to the server
-    $today = date("m/d/Y");
+    $currentMonth = date("n");
+    $currentDay = date("j");
     $conn = connectToDB();
     //select first five birthdays
     //date name surname department
     $selectQuery = "SELECT TOP 5 id_user, birthdate, name, surname FROM [User]
-                    WHERE birthdate = ?;";
-    $selectStatement = sqlsrv_query($conn, $selectQuery, array($today));
+                    WHERE (DATEPART(dd, birthdate) = ? AND DATEPART(mm, birthdate) = ?)";
+    $selectStatement = sqlsrv_query($conn, $selectQuery, array($currentDay, $currentMonth));
     if ($selectStatement === false)
     {
-        sqlsrv_free_stmt($selectStatement);
-        sqlsrv_close($conn);
-    	return null;
+        echo "error UserScript.php : retrieving first five upcoming birthdays failed -> ";
+        die(print_r(sqlsrv_errors(), true));
     }
     $outputarray = array();
-    $userDepartmentListNames = array();
     while ($results = sqlsrv_fetch_array($selectStatement, SQLSRV_FETCH_ASSOC))
     {
-        $userDepartmentListIDs = getUserDeparmentList($conn, $results['id_user']);
+        $userDepartmentListNames = array();
+        $userDepartmentListIDs = getUserDepartmentList($conn, $results['id_user']);
         for ($i = 0; $i < count($userDepartmentListIDs); $i++)
         {
             array_push($userDepartmentListNames,getDepartmentName($conn,$userDepartmentListIDs[$i]));
         }
-        array_push($results,array("departments"=>$userDepartmentListNames));
+        $results['departments'] = $userDepartmentListNames;
+        //array_push($results,array('departments'=>$userDepartmentListNames));
         array_push($outputarray, json_encode($results));
     }
     sqlsrv_free_stmt($selectStatement);
