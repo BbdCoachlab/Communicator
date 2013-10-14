@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head> <!-- Code for menu bar at the top of each page. -->
       <title>bbd communicator</title>
       <link rel="shortcut icon" href="images/bbd-symbol.png" />
       <link rel="stylesheet" href="style/bootstrap.css" media="screen" />       
