@@ -21,10 +21,7 @@
 			<h1>Events</h1>            
             </div>
           </div>
-        </div>
-	
-		<?php include('baseform.php'); ?>
-		
+        </div>		
 		<div class="row">
           <div class="col-lg-12"
             <div class="well">
