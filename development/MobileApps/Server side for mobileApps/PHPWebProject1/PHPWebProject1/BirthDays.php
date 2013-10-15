@@ -8,7 +8,7 @@ $ev ->bday();
 class BirthDays
 {
 
-
+// Get birthday messages from the database
 public function bday()
 {
 
