@@ -1,8 +1,7 @@
 <?php
-
+// Get events from database
 $even = new Events();
 $even ->event();
-
 
 class Events
 {

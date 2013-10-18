@@ -5,7 +5,8 @@
 ?>
 
 <!DOCTYPE html>
-<head>
+<head>   <!-- The dashboard gives a summary of the different functions of the BBD Communicator. 
+			  This code is to display the buttons to navigate to the Birthdays, nominations and events. -->
     <html lang="en">
     <script src="js/jquery.js"></script>
     <script src="js/style_script.js"></script>
