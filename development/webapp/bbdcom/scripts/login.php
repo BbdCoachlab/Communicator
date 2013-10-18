@@ -1,5 +1,5 @@
 <?php
-
+// This code checks for user login and perform action according to user information if provided.
 try {
     session_start();
     if (isset($_GET['error'])) {

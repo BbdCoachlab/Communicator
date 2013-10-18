@@ -1,8 +1,9 @@
 <?php
+//Code handles sending messages and uploading images for the birthday function on the web application side.
 session_start();
-include("upload_image.php");
+include("upload_image.php"); // Includes upload_image.php to and evaluates the file.
 
-$department = $_POST["department_list"];
+$department = $_POST["department_list"]; //Posts department_list and handles messages
 if(empty($department))
 {
     $_SESSION['message_error']='<div class="alert alert-dismissable alert-danger">'
@@ -13,7 +14,7 @@ if(empty($department))
     exit;
 }
 
-$subject = $_POST["subject"];
+$subject = $_POST["subject"]; // Handles message sending.
 if(empty($subject))
 {
     $_SESSION['message_error']='<div class="alert alert-dismissable alert-danger">'
@@ -29,7 +30,7 @@ if(empty($message))
 {
     $message = null;    
 }
-
+ // The function handles uploading images for sending birthday messages on the web application.
 $image = $_FILES["image"];
 
 if(!empty($image["errors"]))
@@ -111,6 +112,6 @@ $_SESSION['message_success']='<div class="alert alert-dismissable alert-success"
 
 //add to database
 
-header('Location: /bbdcom/dashboard.php');
+header('Location: /bbdcom/dashboard.php'); // The function is called to redirect to the dashboard page.
 exit;
 ?>
