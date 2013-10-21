@@ -1,9 +1,5 @@
 <?php
-//Code handles sending messages and uploading images for the birthday function on the web application side.
 session_start();
-<<<<<<< HEAD
-include("upload_image.php"); // Includes upload_image.php to and evaluates the file.
-=======
 require("db/connectionScript.php");
 require("db/UserScript.php");
 require("db/NotificationScript.php");
@@ -13,9 +9,8 @@ require("db/Note_DepartmentScript.php");
 require("db/Department_UserScript.php");
 require("db/Department_Note_UserScript.php");
 include("upload_image.php");
->>>>>>> 3467d71e7101b083b28a93fa6d7b047f549121a0
 
-$department = $_POST["department_list"]; //Posts department_list and handles messages
+$department = $_POST["department_list"];
 if(empty($department))
 {
     $_SESSION['message_error']='<div class="alert alert-dismissable alert-danger">'
@@ -26,7 +21,7 @@ if(empty($department))
     exit;
 }
 
-$subject = $_POST["subject"]; // Handles message sending.
+$subject = $_POST["subject"];
 if(empty($subject))
 {
     $_SESSION['message_error']='<div class="alert alert-dismissable alert-danger">'
@@ -42,7 +37,7 @@ if(empty($message))
 {
     $message = null;    
 }
- // The function handles uploading images for sending birthday messages on the web application.
+
 $image = $_FILES["image"];
 
 if(!empty($image["errors"]))
@@ -129,6 +124,6 @@ $output1 = addNotification($subject,$image_path,$message,0,"12/12/2013",$departm
 //echo $output1;
 
 
-header('Location: /bbdcom/dashboard.php'); // The function is called to redirect to the dashboard page.
+header('Location: /bbdcom/dashboard.php');
 exit;
 ?>

@@ -21,11 +21,7 @@
 			<h1>Events</h1>            
             </div>
           </div>
-<<<<<<< HEAD
-        </div>		
-=======
         </div>
->>>>>>> 3467d71e7101b083b28a93fa6d7b047f549121a0
 		<div class="row">
           <div class="col-lg-12"
             <div class="well">

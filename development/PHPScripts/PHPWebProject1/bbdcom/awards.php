@@ -1,33 +1,30 @@
 <!-- include the menu bar !-->
 <?php 
-    include('menu.php'); 
-    include('scripts/check_logged_in.php');
+include('menu.php'); 
+include('scripts/check_logged_in.php');
 ?>
 
 <!DOCTYPE html>
     <head>
         <script src="js/jquery.js"></script>
         <script src="js/jquery_validation.js"></script>
-       <!--  <script src="js/basic_form_validation.js"></script>  -->       
+        <script src="js/basic_form_validation.js"></script>
       </head>
   <html lang="en">
 	
-    <body>	
+    <body>
+	
       <div class="container">
 	    <!-- making the heading !-->
         <div class="page-header" id="banner">
           <div class="row">
             <div class="col-lg-6">
-			<h1>Events</h1>            
+			<h1>Awards</h1>            
             </div>
           </div>
-<<<<<<< HEAD
-        </div>		
-=======
         </div>
->>>>>>> 3467d71e7101b083b28a93fa6d7b047f549121a0
 		<div class="row">
-          <div class="col-lg-12"
+          <div class="col-lg-12">
             <div class="well">
               <form class="bs-example form-horizontal" action="scripts/send_basic_message.php" method="post" id="basic_form" enctype="multipart/form-data">
                 <fieldset>    
@@ -41,7 +38,7 @@
                   <div class="form-group">
                     <label for="subject" class="col-lg-2 control-label">Subject</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control"  name="subject" id="subject" placeholder="Subject" />
+                      <input type="text" class="form-control"  name="subject" id="subject" placeholder="Subject">
                     </div>
                   </div>
 
@@ -55,38 +52,14 @@
 				  <div class="form-group">
                     <label for="image" class="col-lg-2 control-label">Upload Image</label>
                     <div class="col-lg-10">
-                      <input type="file"  id="image" name="image" />
+                      <input type="file"  id="image" name="image">
                     </div>
                   </div>
-                    <div class="form-group">
-                    <label for="rsvp" class="col-lg-2 control-label">RSVP Email</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control"  name="rsvp" id="rsvp" placeholder="RSVP Email" />
-                    </div>
-                  </div>
-                  
-                  <br/>            
-                  <div>
-                    <legend>Request Additional Information</legend>
-                  </div> 
-                  
-                  <div class="form-group">                                                                                                     
-                    <label ><input type="checkbox" value="partner"  name="check_list[]" id="partner"/> Bring a partner</label>
-                  </div>
-                  
-                  <div class="form-group">                                                                                                     
-                    <label ><input type="checkbox" value="diet" name="check_list[]" id="diet"/> Dietary Requirements</label>
-                  </div>                                   
-                  
-                  <div class="form-group">                                                                                                     
-                    <label ><input type="checkbox" value="driver"  name="check_list[]" id="driver"/> Good Fellas</label>
-                  </div>
-                  
-                  <input type="hidden" value="true" name="is_event" id="is_event" />
+				  
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">                      
                       <button type="submit" class="btn btn-primary" id="btn_submit" name="btn_submit">Submit</button> 
-					   <button type="reset" class="btn btn-default" id="btn_cancel" name="btn_cancel">Cancel</button> 
+					   <button type="reset" class="btn btn-default" id="btn_cancel" name="btn_cancel">Cancel</button>
                     </div>
                   </div>                  
                 </fieldset>
@@ -95,8 +68,9 @@
           </div>
           </div>		
 	    </div>
-      </div>
+      </div>		
 	  </div>
-      <?php include('scripts/check_message_success.php'); ?>
+     </div>
+     <?php include('scripts/check_message_success.php'); ?>
     </body>
   </html>
