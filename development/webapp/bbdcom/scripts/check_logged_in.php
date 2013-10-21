@@ -1,4 +1,5 @@
 <?php
+// Code redirects to the bbd home page when login session has timed out.
 session_start();
     if(!isset($_SESSION['logged_in'])){
         $_SESSION['login_message']='<div class="alert alert-dismissable alert-warning">'
