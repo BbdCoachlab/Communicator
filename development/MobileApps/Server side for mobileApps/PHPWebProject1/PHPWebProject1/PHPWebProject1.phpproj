@@ -31,7 +31,7 @@
     <Compile Include="Notification.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="readimage.php">
+    <Compile Include="RSVP.php">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

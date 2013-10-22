@@ -1,14 +1,10 @@
 <?php
+
 require 'ConDb.php';
 $ev = new BirthDays();
 $ev ->bday();
 class BirthDays
 {
-<<<<<<< HEAD
-
-// Get birthday messages from the database
-=======
->>>>>>> 76ce60b8e214748d964158fb8f40795d3afe9915
 public function bday()
 {
       $db = new conectDB();
@@ -23,9 +19,10 @@ public function bday()
             else
             {
                 while($note = sqlsrv_fetch_array($result))
-                {                
+                {
+                  
                     $json = json_encode($note);
-                                              
+                    echo($json);
                 }
             }
           sqlsrv_close($con);
