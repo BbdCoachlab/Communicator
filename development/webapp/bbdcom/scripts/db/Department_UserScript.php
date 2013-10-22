@@ -35,7 +35,7 @@ function getDepartmentMembers($conn, $id_department)
     return $outputarray;
 }
 //fetch all departments linked with a user
-function getUserDeparmentList($conn, $id_user)
+function getUserDepartmentList($conn, $id_user)
 {
 	//select user IDs linked to the department
     $selectQuery = "SELECT Department_id_department FROM [Department_User]

@@ -3,28 +3,26 @@ function addNotification($subject, $image_url, $message, $rsvp_type, $expiry_dat
     $conn = connectToDB();
     //Inserting a notification into the database
     $insertQuery = "INSERT INTO [Notification] (subject, image, message, rsvp_type, expiry_date, notification_type) 
-                    VALUES (?,?,?,?,?,?);";
+                    VALUES (?,?,?,?,?,?); SELECT SCOPE_IDENTITY()";
     $insertStatement = sqlsrv_query($conn,$insertQuery,array($subject, $image_url, $message, $rsvp_type, $expiry_date, $notification_type));
     if($insertStatement===false){
         echo "error NotificationScript : Notification insertion failed -> ";
         die(print_r(sqlsrv_errors(), true));
     }
-    //free statement and close connection
-    sqlsrv_free_stmt($insertStatement);
     
-    //get id of inserted notifiation: this is not the best way of doing this since I believe the could be interleaving problems when run concurrently however it is a temporary solution.
-    $selectQuery = "SELECT TOP 1 id_notification FROM [Notification] ORDER BY id_notification DESC;";
-    $selectStatement = sqlsrv_query($conn,$selectQuery);
-    if($selectStatement===false){
-        echo "error NotificationScript : Fetching newly inserted notification ID has failed -> ";
+    $next_result = sqlsrv_next_result($insertStatement);
+    if($next_result===false){
+        echo "error NotificationScript : inserted notification id retrieval failed -> ";
         die(print_r(sqlsrv_errors(), true));
     }
     
-    $new_notification = sqlsrv_fetch_array($selectStatement);
-    //free statement and close connection
-    sqlsrv_free_stmt($selectStatement);
+    if(sqlsrv_fetch($insertStatement)===false){
+        echo "error NotificationScript : fetching insert statement output failed -> ";
+        die(print_r(sqlsrv_errors(), true));
+    }
     
-    $id_notification = $new_notification[0];
+    $id_notification = sqlsrv_get_field($insertStatement, 0);
+    
     //get target departments id
     $id_department = getDepartmentID($conn, $target_department);
     //link notification to target department
