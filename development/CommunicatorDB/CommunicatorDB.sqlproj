@@ -119,6 +119,7 @@
     <Build Include="dbo\Tables\Department_User.sql" />
     <Build Include="dbo\Tables\Department_Note_User.sql" />
     <Build Include="dbo\Tables\Department.sql" />
+    <Build Include="dbo\Tables\Registration_ID.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="CommunicatorDB.refactorlog" />
