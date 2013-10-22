@@ -1,4 +1,5 @@
 <?php
+// The code handles uploading images in limiting image size and giving image format.
 function uploadImage($image)
 {
     

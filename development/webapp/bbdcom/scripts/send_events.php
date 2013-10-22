@@ -1,5 +1,6 @@
 <?php
-
+// The code checks if the entered information has been set for posting.
+// The department, subject and message are to be tested if they are set or not.
 if(isset($_POST["department"]))
 {
     $department = $_POST["department"];

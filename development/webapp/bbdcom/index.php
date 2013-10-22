@@ -1,7 +1,7 @@
 <!--<?php session_start(); ?>-->
 <!DOCTYPE html>
 <html lang="en">
-    <head>      
+    <head>      <!-- To create the login page of the web application of the BBD Communicator.-->
         <meta charset="UTF-8">
         <title>bbd communicator</title>
         <link rel="shortcut icon" href="images/bbd-symbol.png" >
