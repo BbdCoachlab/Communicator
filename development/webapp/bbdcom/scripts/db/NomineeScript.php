@@ -4,9 +4,9 @@ function isNominee($id_user, $category)
 {
 	//connect to the server
     $conn = connectToDB();
-    //check if nominee is in database
+    //check if nominee is nominated
     $selectQuery = "SELECT ? FROM [Nominee] 
-                  WHERE User_id_user = ? AND ";
+                  WHERE User_id_user = ?";
     $selectStatement = sqlsrv_query($conn,$selectQuery,array($category, $id_user));
     if($selectStatement === false){
         echo "error NomineeScript.php : isNominee query failed -> ";

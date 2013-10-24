@@ -9,7 +9,7 @@ require "Department_UserScript.php";
 require "Department_Note_UserScript.php";
 
 //$output = addNotification("Subject1","http://res.cloudinary.com/ddgnvmjdr/image/upload/v1374820373/eventsequence_yczehu.png","this is a message",0,"12/12/2013","department1", "birthday");
-echo "please work";
+//echo "please work";
 //echo $output;
 /*Testing user*/
 

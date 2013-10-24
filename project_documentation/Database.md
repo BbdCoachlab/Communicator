@@ -17,4 +17,4 @@ Below is a list of the junction tables:
 
 ####Database ERD:####
 
-![Communicator ERD](http://res.cloudinary.com/bandilecloud/image/upload/v1375701608/ERD1_x693id.png)
+![Communicator ERD](http://res.cloudinary.com/bandilecloud/image/upload/v1381414340/ERD2_b0ttht.png)

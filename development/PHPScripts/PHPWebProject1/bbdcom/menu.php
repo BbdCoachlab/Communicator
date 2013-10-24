@@ -4,7 +4,10 @@
     <head>
       <title>bbd communicator</title>
       <link rel="shortcut icon" href="images/bbd-symbol.png" />
-      <link rel="stylesheet" href="style/bootstrap.css" media="screen" />       
+      <link rel="stylesheet" href="style/bootstrap.css" media="screen" />  
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <!-- <script type="text/javascript" data-app-id="nEjhbfN94g3w2nAYczxEw" src="https://assets.yammer.com/platform/yam.js"></script>
+      <script type="text/javascript" src="js/yammer_logout.js"></script> -->
     </head>
 
     <body>
