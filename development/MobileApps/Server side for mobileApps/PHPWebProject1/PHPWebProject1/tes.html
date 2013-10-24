@@ -11,8 +11,7 @@
              $.getJSON('./Notification.php', function (data) {
                  /* data will hold the php array as a javascript object */
                  var img = new Image;
-                 var x = eval(data);
-		 console.log(x);
+                 var x = eval(data);                           
                  document.write('<br><br><br>Your image : <img src="' + x.image + '" height="100" width="200"/>');
                  });
          });
