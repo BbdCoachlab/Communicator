@@ -1,15 +1,13 @@
 <?php
-// Get events from database
+require 'ConDb.php';
 $even = new Events();
 $even ->event();
 
 class Events
 {
-
 public function event()
 {
-
-    $db = new conectDB();
+    $db = new conectDB(); 
     $con =  $db->Opencon();
     // echo("one");
     // events table is still to be added to the database.
@@ -28,14 +26,9 @@ public function event()
             
             $json = json_encode($note);
             echo($json);
-            //  $json = json_encode($result);
-            //echo($result."Itumeleneng");
-            
         }
     }
     sqlsrv_close($con);
-
-
 }
 }
 

@@ -1,9 +1,6 @@
 <?php
 //add note department link
 function linkNotificationAndDepartment($conn, $id_deparment, $id_notification){
-    //connecting to the server and database
-    //$conn = connectToDB();
-    
     
     //Inserting a link into the database
     $insertQuery = "INSERT INTO [Note_Department] (Department_id_department, Notification_id_notification) 
@@ -15,7 +12,6 @@ function linkNotificationAndDepartment($conn, $id_deparment, $id_notification){
     }
     //free statement and close database
     sqlsrv_free_stmt($insertStatement);
-    sqlsrv_close($conn);
 }
 //get received counter
 function receivedCount($conn, $id_department, $id_notification){

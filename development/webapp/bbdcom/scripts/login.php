@@ -1,5 +1,13 @@
 <?php
-
+// This code checks for user login and perform action according to user information if provided.
+    require('db/connectionScript.php');
+    require('db/UserScript.php');
+    require('db/NotificationScript.php');
+    require('db/DepartmentScript.php');
+    require('db/NomineeScript.php');
+    require('db/Note_DepartmentScript.php');
+    require('db/Department_UserScript.php');
+    require('db/Department_Note_UserScript.php');
 try {
     session_start();
     if (isset($_GET['error'])) {
@@ -79,14 +87,25 @@ try {
     }
     
     $_SESSION['logged_in'] = true;
+    
+    $isUser = isUser($user_id);
+    if($isUser){
+        //update the user
+        echo "is user";
+    }else{
+        //add user
+        $returned = addUser($user_id, $name, $surname, $email, $image, $dob, $department);
+        //echo $returned;
+    }
     header('Location: /bbdcom/dashboard.php');
-   /* echo "Name: $name<br>";
+   /*echo "Name: $name<br>";
     echo "Surname: $surname<br>";
     echo "Email: $email<br>";
     echo "Birth date: $dob<br>";
     echo "Department: $department<br>";
     echo "User ID: $user_id<br>";
     echo "Image: $image";*/
+    
     
 } catch (Exception $e){
     $_SESSION['login_message']='<div class="alert alert-dismissable alert-danger">'
