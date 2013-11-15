@@ -26,6 +26,7 @@ Location: /bbdcom/index.php
  - Location: /bbdcom/index.php
 
 ##Mobile_login.php##
+###Requires###
  - db/connectionScript.php
  - db/UserScript.php
  - db/NotificationScript.php
@@ -34,3 +35,12 @@ Location: /bbdcom/index.php
  - db/Note_DepartmentScript.php
  - db/Department_UserScript.php
  - db/Department\_Note_UserScript.php
+
+##RegistrationID.php##
+Contains the same require functions as in the above script.
+##Send\_basic_messages.php##
+Contains the same require functions as above function.
+###Include###
+ - upload_image.php
+
+

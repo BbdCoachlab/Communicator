@@ -1,7 +1,9 @@
 <?php
 //Code handles sending messages and uploading images for the birthday function on the web application side.
 session_start();
+
 include("upload_image.php"); // Includes upload_image.php to and evaluates the file.
+
 require("db/connectionScript.php");
 require("db/UserScript.php");
 require("db/NotificationScript.php");
@@ -10,7 +12,9 @@ require("db/NomineeScript.php");
 require("db/Note_DepartmentScript.php");
 require("db/Department_UserScript.php");
 require("db/Department_Note_UserScript.php");
+
 include("upload_image.php");
+include("upload_image.php"); // Includes upload_image.php to and evaluates the file.
 
 $department = $_POST["department_list"]; //Posts department_list and handles messages
 if(empty($department))
@@ -39,7 +43,7 @@ if(empty($message))
 {
     $message = null;    
 }
- // The function handles uploading images for sending birthday messages on the web application.
+
 $image = $_FILES["image"];
 
 if(!empty($image["errors"]))
@@ -122,8 +126,9 @@ $_SESSION['message_success']='<div class="alert alert-dismissable alert-success"
 $message_type = $_POST['message_type'];
 
 //add to database
-$output1 = addNotification($subject,$image_path,$message,0,"12/12/2013",$department, $message_type);
-//echo $output1;
+$json_rsvp = json_encode($rsvp);
+$output1 = addNotification($subject,$image_path,$message,$json_rsvp,"12/12/2014",$department, $message_type);
+var_dump($output1);
 
 
 header('Location: /bbdcom/dashboard.php'); // The function is called to redirect to the dashboard page.

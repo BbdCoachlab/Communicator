@@ -120,8 +120,9 @@ $_SESSION['message_success']='<div class="alert alert-dismissable alert-success"
 $message_type = $_POST['message_type'];
 
 //add to database
-$output1 = addNotification($subject,$image_path,$message,0,"12/12/2013",$department, $message_type);
-//echo $output1;
+$json_rsvp = json_encode($rsvp);
+$output1 = addNotification($subject,$image_path,$message,$json_rsvp,"12/12/2014",$department, $message_type);
+var_dump($output1);
 
 
 header('Location: /bbdcom/dashboard.php');

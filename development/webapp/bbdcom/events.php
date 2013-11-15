@@ -3,6 +3,11 @@
 <?php 
     include('menu.php'); 
     include('scripts/check_logged_in.php');
+    require('scripts/db/connectionScript.php');
+    require('scripts/db/DepartmentScript.php');
+    require('scripts/db/UserScript.php');
+    require('scripts/db/Department_UserScript.php');
+?>
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +27,9 @@
 			<h1>Events</h1>            
             </div>
           </div>
+
         </div>		
+
 
         </div>
 		<div class="row">

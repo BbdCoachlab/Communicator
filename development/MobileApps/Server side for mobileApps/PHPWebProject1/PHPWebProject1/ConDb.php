@@ -19,7 +19,6 @@ class conectDB
        // echo("Connected!");
         return $conn;
     }
-
 }
 
 ?>
