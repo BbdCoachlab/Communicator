@@ -1,4 +1,6 @@
 <!-- include the menu bar !-->
+
+<!--This code makes the form for events for the web application.-->
 <?php 
 include('menu.php'); 
 include('scripts/check_logged_in.php');
