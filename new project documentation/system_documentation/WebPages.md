@@ -11,8 +11,8 @@ This code is to display the buttons to navigate to the Birthdays, nominations an
  - js/style_script.js
 ### Includes###
  - menu.php
- - scripts/check_logged_in.php
- - scripts/check_message_success.php
+ - scripts/check\_logged_in.php
+ - scripts/check\_message_success.php
  
 ###Resources:###
 ##### Images #####
@@ -26,12 +26,15 @@ This code is to display the buttons to navigate to the Birthdays, nominations an
 ##Events.php##
 Description:
 This code makes the form for events for the web application with the questionaire.
-###Includes###
+###Includes and requires###
  - menu.php
- - scripts/check_logged_in.php
+ - scripts/check\_logged_in.php
  - scripts/department_list.php
- - scripts/check_message_success.php
+ - scripts/check\_message_success.php
  - scripts/department_list.php
+ - scripts/db/connectionScripts.php
+ - scripts/db/DepartmentsScripts.php
+ - scripts/db/Department_UserScript.php
 ###Javascripts###
  - js/jquery.js
  - js/jquery_validation.js
@@ -40,15 +43,20 @@ This code makes the form for events for the web application with the questionair
 ##Birthdays.php##
 Description:
 This code makes the form for birthdays for the web application.
-###Includes###
-- scripts/check_logged_in.php
+###Includes and requires###
+- scripts/check\_logged_in.php
 - menu.php
 - scripts/department_list.php
-- scripts/check_message_success.php
+- scripts/check\_message_success.php
+- scripts/db/connectionScript.php
+- scripts/db/DepartmentScript.php
+- scripts/db/UserScript.php
+- scripts/db/Department_UserScript.php
+
 ###Javascripts###
 - js/jquery.js
 - js/jquery_validation.js
-- js/basic_form_validation.js
+- js/basic\_form_validation.js
 - js/style_script.js
 
 
@@ -57,11 +65,11 @@ Description:
 This code makes the form for events for the web application.
 ###Includes###
  - menu.php
- - scripts/check_logged_in.php
+ - scripts/check\_logged_in.php
  - scripts/department_list.php
  - baseform.php
- - scripts/check_message_success.php
+ - scripts/check\_message_success.php
 ###Javascripts###
  - js/jquery.js
  - js/jquery_validation.js
- - js/basic_form_validation.js
+ - js/basic\_form_validation.js

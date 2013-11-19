@@ -1,4 +1,5 @@
 <!-- include the menu bar !-->
+<!--This code makes the form for birthdays for the web application.-->
 <?php 
 include('scripts/check_logged_in.php');
 include('menu.php');

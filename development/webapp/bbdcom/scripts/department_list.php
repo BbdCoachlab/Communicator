@@ -1,4 +1,11 @@
 <?php
+
+// This code creates a list all names and departments.
+$departments = array("All","Human Resources","Nedbank", "SARS");
+
+require('db/connectionScript.php');
+require('db/DepartmentScript.php');
+
 $departments = getAllDepartments();
 //$departments = array("Happy", "sad");
 $drop_list = "<select class='form-control' id= 'department_list' name= 'department_list'><option value='' selected='selected'>Select</option>";

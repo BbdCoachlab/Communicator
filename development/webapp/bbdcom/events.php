@@ -1,4 +1,5 @@
 <!-- include the menu bar !-->
+<!--This code makes the form for events for the web application with the questionnaire.-->
 <?php 
     include('menu.php'); 
     include('scripts/check_logged_in.php');
@@ -26,6 +27,10 @@
 			<h1>Events</h1>            
             </div>
           </div>
+
+        </div>		
+
+
         </div>
 		<div class="row">
           <div class="col-lg-12"
