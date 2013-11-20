@@ -67,14 +67,14 @@ function isUser($id_user){
 }
 
 //retreive first five birthdays
-function firstFiveBirthdays(){
+function getCurrentBirthdays(){
     //connect to the server
     $currentMonth = date("n");
     $currentDay = date("j");
     $conn = connectToDB();
     //select first five birthdays
     //date name surname department
-    $selectQuery = "SELECT TOP 5 id_user, birthdate, name, surname FROM [User]
+    $selectQuery = "SELECT id_user, birthdate, name, surname FROM [User]
                     WHERE (DATEPART(dd, birthdate) = ? AND DATEPART(mm, birthdate) = ?)";
     $selectStatement = sqlsrv_query($conn, $selectQuery, array($currentDay, $currentMonth));
     if ($selectStatement === false)
