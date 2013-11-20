@@ -1,62 +1,103 @@
 <?php
+
 //add department user link: increase department count
-function linkDepartmentAndUser($conn, $id_department, $id_user)
-{   
+function linkDepartmentAndUser($conn, $id_department, $id_user) {
     //Inserting a link into the database
-    $insertQuery = "INSERT INTO [Department_User] (Department_id_department, User_id_user) 
-                    VALUES (?,?)";
-    $insertStatement = sqlsrv_query($conn, $insertQuery, array($id_department, $id_user));
-    if($insertStatement===false){
-        echo "error Department_UserScript.php : Department to User link failed -> ";
-        die(print_r(sqlsrv_errors(), true));
-    }
-    //free statement
-    sqlsrv_free_stmt($insertStatement);
+    $insertQuery = "INSERT INTO Department_User  (Department_id_department, User_id_user) VALUES (?,?)";
+
+    $insertStmt = mysqli_prepare($conn, $insertQuery);
+    mysqli_stmt_bind_param($insertStmt, 'ss', $id_department, $id_user);
+
+    //execute prepared statement
+    mysqli_stmt_execute($insertStmt);
+
+    //close statement
+    mysqli_stmt_close($insertStmt);
 }
+
 //fetch all users linked with a department
-function getDepartmentMembers($conn, $id_department)
-{
+function getDepartmentMembers($conn, $id_department) {
     //select user IDs linked to the department
-    $selectQuery = "SELECT User_id_user FROM [Department_User]
-                    WHERE Department_id_department = (?)";
-    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
-    if ($selectStatement === false)
-    {
-        sqlsrv_free_stmt($selectStatement);
-    	return null;
+    $selectQuery = "SELECT User_id_user FROM Department_User WHERE Department_id_department = ?";
+
+    if ($selectStmt = mysqli_prepare($conn, $selectQuery)) {
+
+        //bind parameters 
+        mysqli_stmt_bind_param($selectStmt, "i", $id_department);
+
+		//execute prepared statement
+		 mysqli_stmt_execute($selectStmt);
+		
+        //bind result variable
+        mysqli_stmt_bind_result($selectStmt, $resultQuery);
+
+
+
+        //fetch value
+        mysqli_stmt_fetch($selectStmt);
+        if ($resultQuery == null) {
+            //free statement, close connection 
+            mysqli_stmt_close($selectStmt);
+            //mysqli_close($conn);
+
+            return null;
+        }
+
+        //fetch values
+        $outputarray = array();
+		array_push($outputarray, $resultQuery);
+
+        while ( mysqli_stmt_fetch($selectStmt)) {
+
+            array_push($outputarray, $resultQuery);
+        }
+        //free statement and close connection
+        mysqli_stmt_close($selectStmt);
+        //mysqli_close($conn);
+        return $outputarray;
     }
-    $outputarray = array();
-    while ($results = sqlsrv_fetch_array($selectStatement))
-    {
-        array_push($outputarray, $results[0]);
-    }
-    //free statement and close connection
-    sqlsrv_free_stmt($selectStatement);
-    return $outputarray;
 }
+
 //fetch all departments linked with a user
-function getUserDepartmentList($conn, $id_user)
-{
-	//select user IDs linked to the department
-    $selectQuery = "SELECT Department_id_department FROM [Department_User]
-                    WHERE User_id_user = ?";
-    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_user));
-    if ($selectStatement === false)
-    {
-        echo "error Department_UserScript.php : fetching user's departments failed -> ";
-        die(print_r(sqlsrv_errors(), true));
+function getUserDepartmentList($conn, $id_user) {
+
+    //select user IDs linked to the department
+    $selectQuery = "SELECT Department_id_department FROM Department_User  WHERE User_id_user = ?";
+
+    if ($selectStmt = mysqli_prepare($conn, $selectQuery)) {
+
+        //bind parameters 
+        mysqli_stmt_bind_param($selectStmt, "s", $id_user);
+		
+		//execute prepared statement
+		 mysqli_stmt_execute($selectStmt);
+		 
+        //bind result variable
+        mysqli_stmt_bind_result($selectStmt, $resultQuery);
+
+        //fetch value
+        mysqli_stmt_fetch($selectStmt);
+        if ($resultQuery == null) {
+            //free statement, close connection 
+            mysqli_stmt_close($selectStmt);
+            //mysqli_close($conn);
+
+            return null;
+        }
+        $outputarray = array();
+		array_push($outputarray, $resultQuery);
+		
+        while (mysqli_stmt_fetch($selectStmt)) {
+            array_push($outputarray, $resultQuery);
+        }
+
+
+        //free statement and close connection
+        mysqli_stmt_close($selectStmt);
+        //mysqli_close($conn);
+        return $outputarray;
     }
-    $outputarray = array();
-    while ($results = sqlsrv_fetch_array($selectStatement))
-    {
-        array_push($outputarray, $results[0]);
-    }
-    //free statement and close connection
-    sqlsrv_free_stmt($selectStatement);
-    return $outputarray;
 }
 
 //delete department user link
-
-
 ?>

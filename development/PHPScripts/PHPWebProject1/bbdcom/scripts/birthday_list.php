@@ -9,7 +9,7 @@
  * @author Bandile
  */
     //get json encoded list of the next five upcoming birthdays
-    $birthdayJsonList = firstFiveBirthdays();
+    $birthdayJsonList = getCurrentBirthdays();
     $birthdayList = json_decode($birthdayJsonList);
     //each element of the above json decoded list is also json encoded, now we loop through each element json_decode and display the results
     for($i = 0; $i < sizeof($birthdayList); $i++){

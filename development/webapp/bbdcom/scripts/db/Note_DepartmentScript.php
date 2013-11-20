@@ -1,32 +1,41 @@
 <?php
 //add note department link
-function linkNotificationAndDepartment($conn, $id_deparment, $id_notification){
+function linkNotificationAndDepartment($conn, $id_department, $id_notification){
     
     //Inserting a link into the database
-    $insertQuery = "INSERT INTO [Note_Department] (Department_id_department, Notification_id_notification) 
+    $insertQuery = "INSERT INTO Note_Department (Department_id_department, Notification_id_notification) 
                     VALUES (?,?)";
-    $insertStatement = sqlsrv_query($conn, $insertQuery, array($id_deparment, $id_notification));
+    $insertStatement = mysqli_prepare($conn, $insertQuery);
     if($insertStatement===false){
         echo "Department to Notification link failed";
-        die(print_r(sqlsrv_errors(), true));
+        die(print_r(mysqli_error(), true));
     }
-    //free statement and close database
-    sqlsrv_free_stmt($insertStatement);
+	//bind parameters and execute statement
+	mysqli_stmt_bind_param($insertStatement,"ii",$id_department, $id_notification);
+	mysqli_stmt_execute($insertStatement);
+    //free statement
+    mysqli_stmt_close($insertStatement);
 }
 //get received counter
 function receivedCount($conn, $id_department, $id_notification){
     
     $selectQuery = "SELECT received_counter 
-                    FROM [Note_Department] 
+                    FROM Note_Department 
                     WHERE Department_id_Department = ? AND Notification_id_notification = ?;";
-    $statement = sqlsrv_query($conn, $selectQuery, array($id_department, $id_notification));
-    if ($statement===false)
+    $selectstatement = mysqli_prepare($conn, $selectQuery);
+    if ($selectstatement===false)
     {
-    	die(print_r(sqlsrv_errors(),true));
+    	die(print_r(mysqli_error(),true));
     }
-    $receivedcounter = sqlsrv_fetch_array($statement);
-    sqlsrv_free_stmt($statement);
-    return $receivedcounter[0];
+	//bind parameters and execute statement
+	mysqli_stmt_bind_param($selectstatement,"ii",$id_department, $id_notification);
+	mysqli_stmt_execute($selectstatement);
+	//fetch results
+	mysqli_stmt_bind_result($selectStatement, $receivedCounter);
+	mysqli_stmt_fetch($selectStatement);
+    //free statement
+    mysqli_stmt_close($selectstatement);
+    return $receivedCounter;
 }
 
 //increase received counter
@@ -40,13 +49,16 @@ function increaseReceivedCounter($conn, $id_department, $id_notification){
     $updateQuery = "UPDATE Notification_Department 
                     SET received_counter = ? 
                     WHERE Department_id_department = ? AND Notification_id_notification = ?";
-    $statement = sqlsrv_query($conn,$updateQuery,array($newReceivedCounter,$id_department, $id_notification));
+    $statement = mysqli_prepare($conn,$updateQuery);
     if ($statement===false)
     {
-    	die(print_r(sqlsrv_errors(),true));
+    	die(print_r(mysqli_error(),true));
     }
-    sqlsrv_free_stmt($statement);
-    sqlsrv_close($conn);
+	//bind parameters and execute statement
+	mysqli_stmt_bind_param($selectstatement,"iii",$newReceivedCounter,$id_department, $id_notification);
+	mysqli_stmt_execute($selectstatement);
+    //free statement
+    mysqli_stmt_close($selectstatement);
     return "succesfull";
 }
 

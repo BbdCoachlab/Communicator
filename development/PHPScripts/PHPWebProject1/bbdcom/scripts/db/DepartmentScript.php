@@ -38,43 +38,44 @@ function addDepartment($conn, $name){
     sqlsrv_free_stmt($insertStatement);
 }
 //retreive department size
-function departmentSize($conn, $id_department){
-    //Retrieve current department size
-    $selectQuery = "SELECT department_size 
-                    FROM [Department] 
-                    WHERE id_department = ?;";
-    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
-    if ($selectStatement===false)
-    {
-        echo "error DepartmentScript.php : retrieving the department size has failed -> ";
-    	die(print_r(sqlsrv_errors(),true));
-    }
-    $DepartmentSize = sqlsrv_fetch_array($selectStatement);
-    //free statement and return department size
-    sqlsrv_free_stmt($selectStatement);
-    return $DepartmentSize[0];
-}
 
-//increase department size
-function increaseDepartmentSize($conn, $id_department){
-    //retrieve current department size.
-    $currentDepartmentSize = departmentSize($conn, $id_department);
-    //set new department size
-    $newDepartmentSize = $currentDepartmentSize + 1;
-    //update table entry department size
-    $updateQuery = "UPDATE Department 
-                    SET department_size = ? 
-                    WHERE id_department = ?";
-    $updateStatement = sqlsrv_query($conn,$updateQuery,array($newDepartmentSize,$id_department));
-    if ($updateStatement===false)
-    {
-        echo "error DepartmentScript.php : updating department size has failed -> ";
-    	die(print_r(sqlsrv_errors(),true));
-    }
-    //free statement
-    sqlsrv_free_stmt($updateStatement);
+//function departmentSize($conn, $id_department){
+//    //Retrieve current department size
+//    $selectQuery = "SELECT department_size 
+//                    FROM [Department] 
+//                    WHERE id_department = ?;";
+//    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
+//    if ($selectStatement===false)
+//    {
+//        echo "error DepartmentScript.php : retrieving the department size has failed -> ";
+//    	die(print_r(sqlsrv_errors(),true));
+//    }
+//    $DepartmentSize = sqlsrv_fetch_array($selectStatement);
+//    //free statement and return department size
+//    sqlsrv_free_stmt($selectStatement);
+//    return $DepartmentSize[0];
+//}
+
+////increase department size
+//function increaseDepartmentSize($conn, $id_department){
+//    //retrieve current department size.
+//    $currentDepartmentSize = departmentSize($conn, $id_department);
+//    //set new department size
+//    $newDepartmentSize = $currentDepartmentSize + 1;
+//    //update table entry department size
+//    $updateQuery = "UPDATE Department 
+//                    SET department_size = ? 
+//                    WHERE id_department = ?";
+//    $updateStatement = sqlsrv_query($conn,$updateQuery,array($newDepartmentSize,$id_department));
+//    if ($updateStatement===false)
+//    {
+//        echo "error DepartmentScript.php : updating department size has failed -> ";
+//    	die(print_r(sqlsrv_errors(),true));
+//    }
+//    //free statement
+//    sqlsrv_free_stmt($updateStatement);
     
-}
+//}
 //retrieve the department id
 function getDepartmentID($conn, $name)
 {

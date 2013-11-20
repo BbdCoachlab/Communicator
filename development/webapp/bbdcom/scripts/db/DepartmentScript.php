@@ -1,25 +1,30 @@
 <?php
 function isDepartment($conn, $name){
     //check if department is in database
-    $selectQuery = "SELECT TOP 1 * FROM [Department] 
-                  WHERE name =?;";
-    $selectStatement = sqlsrv_query($conn,$selectQuery, array($name));
+    $selectQuery = "SELECT * FROM Department 
+                  WHERE name =? 
+				  LIMIT 1;";
+    $selectStatement = mysqli_prepare($conn,$selectQuery);
     if($selectStatement === false){
         //Free the statement
         //sqlsrv_free_stmt($testStatement);
         //return false;
         echo "error DepartmentScript : isDepartment check statement has failed -> ";
-        die(print_r(sqlsrv_errors(), true));
+        die(print_r(mysqli_error(), true));
     } else {
+		//bind and execute query
+		mysqli_stmt_bind_param($selectStatement,"s",$name);
+		mysqli_stmt_execute($selectStatement);
         //check if query result is null
-        $id_department = sqlsrv_fetch_array($selectStatement);
-        if ($id_department[0]==null)
+		mysqli_stmt_bind_result($selectStatement, $res_ID, $res_name);
+		mysqli_stmt_fetch($selectStatement);
+        if ($res_ID == null)
         {
-            sqlsrv_free_stmt($selectStatement);
+            mysqli_stmt_close($selectStatement);
         	return false;
         }
         //free statemnet and return true
-        sqlsrv_free_stmt($selectStatement);
+        mysqli_stmt_close($selectStatement);
         return true;
     }
     
@@ -27,17 +32,20 @@ function isDepartment($conn, $name){
 
 function addDepartment($conn, $name){
     //Inserting a department into the database
-    $insertQuery = "INSERT INTO [Department] (name) 
+    $insertQuery = "INSERT INTO Department (name) 
                     VALUES (?);";
-    $insertStatement = sqlsrv_query($conn,$insertQuery, array($name));
+    $insertStatement = mysqli_prepare($conn,$insertQuery);
     if($insertStatement===false){
-        echo "department insertion failed";
-        die(print_r(sqlsrv_errors(), true));
+        echo "error DepartmentScript : department insertion failed -> ";
+        die(print_r(mysqli_error(), true));
     }
-    //free statement and free statement
-    sqlsrv_free_stmt($insertStatement);
+	//bind parameters and execute statement
+	mysqli_stmt_bind_param($insertStatement,"s",$name);
+	mysqli_stmt_execute($insertStatement);
+    //free statement
+    mysqli_stmt_close($insertStatement);
 }
-//retreive department size
+/*/retrieve department size
 function departmentSize($conn, $id_department){
     //Retrieve current department size
     $selectQuery = "SELECT department_size 
@@ -74,24 +82,29 @@ function increaseDepartmentSize($conn, $id_department){
     //free statement
     sqlsrv_free_stmt($updateStatement);
     
-}
+}*/
 //retrieve the department id
 function getDepartmentID($conn, $name)
 {
 	//Retrieve current size
     $selectQuery = "SELECT id_department 
-                    FROM [Department] 
+                    FROM Department 
                     WHERE name = ?;";
-    $selectStatement = sqlsrv_query($conn, $selectQuery, array($name));
+    $selectStatement = mysqli_prepare($conn, $selectQuery);
     if ($selectStatement===false)
     {
         echo "error DepartmentScript.php : Fetching department id has failed -> ";
-    	die(print_r(sqlsrv_errors(),true));
+    	die(print_r(mysqli_error(), true));
     }
-    $DepartmentID = sqlsrv_fetch_array($selectStatement);
+	//bind parameters and execute
+	mysqli_stmt_bind_param($selectStatement,"s",$name);
+	mysqli_stmt_execute($selectStatement);
+	//fetch results
+	mysqli_stmt_bind_result($selectStatement, $res_DepartmentID);
+	mysqli_stmt_fetch($selectStatement);
     //free statement and return department ID
-    sqlsrv_free_stmt($selectStatement);
-    return $DepartmentID[0];
+    mysqli_stmt_close($selectStatement);
+    return $res_DepartmentID;
 }
 
 //retrieve the deparment name
@@ -99,17 +112,21 @@ function getDepartmentName($conn, $id_department)
 {
 	//Retrieve current size
     $selectQuery = "SELECT name 
-                    FROM [Department] 
+                    FROM Department 
                     WHERE id_department = ?;";
-    $selectStatement = sqlsrv_query($conn, $selectQuery, array($id_department));
+    $selectStatement = mysqli_prepare($conn, $selectQuery);
     if ($selectStatement===false)
     {
         echo "error DepartmentScript.php : retrieving department name has failed -> ";
-    	die(print_r(sqlsrv_errors(),true));
+    	die(print_r(mysqli_error(),true));
     }
-    $DepartmentName = sqlsrv_fetch_array($selectStatement);
-    sqlsrv_free_stmt($selectStatement);
-    return $DepartmentName[0];
+	mysqli_stmt_bind_param($selectStatement,"i",$id_department);
+	mysqli_stmt_execute($selectStatement);
+	mysqli_stmt_bind_result($selectStatement, $res_DepartmentName);
+	mysqli_stmt_fetch($selectStatement);
+    //free statement and return department ID
+    mysqli_stmt_close($selectStatement);
+    return $res_DepartmentName;
 }
 
 //list departments
@@ -119,22 +136,24 @@ function getAllDepartments()
     $conn = connectToDB();
     
     //check if department is in database
-    $selectQuery = "SELECT name FROM [Department];";
-    $selectStatement = sqlsrv_query($conn,$selectQuery);
+    $selectQuery = "SELECT name FROM Department;";
+    $selectStatement =  mysqli_prepare($conn,$selectQuery);
     if($selectStatement === false){
         //Free the statement and close the database connection
         echo "error DepartmentScript.php : retrieving all departments failed ->";
-    	die(print_r(sqlsrv_errors(),true));
+    	die(print_r(mysqli_error(),true));
     }
     $outputarray = array();
-    while ($result = sqlsrv_fetch_array($selectStatement))
+	mysqli_stmt_execute($selectStatement);
+	mysqli_stmt_bind_result($selectStatement, $res_DepartmentName);
+    while (mysqli_stmt_fetch($selectStatement))
     {
-        array_push($outputarray, $result[0]);
+        array_push($outputarray, $res_DepartmentName);
     }
     
     //Free the statement and close the database connection
-    sqlsrv_free_stmt($selectStatement);
-    sqlsrv_close($conn);
+    mysqli_stmt_close($selectStatement);
+    mysqli_close($conn);
     return $outputarray;
 }
 //decrease department size
