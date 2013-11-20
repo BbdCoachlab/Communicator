@@ -89,12 +89,53 @@ try {
     $_SESSION['logged_in'] = true;
     
     $isUser = isUser($user_id);
+	$birthdate = "0000-00-00";
+	
+		$split_dob = explode(' ', $dob);
+		switch($split_dob[0]){
+			case "January":
+				$birthdate = "0000-01-".$split_dob[1];
+				break;
+			case "February":
+				$birthdate = "0000-02-".$split_dob[1];
+				break;
+			case "March":
+				$birthdate = "0000-03-".$split_dob[1];
+				break;
+			case "April":
+				$birthdate = "0000-04-".$split_dob[1];
+				break;
+			case "May":
+				$birthdate = "0000-05-".$split_dob[1];
+				break;
+			case "June":
+				$birthdate = "0000-06-".$split_dob[1];
+				break;
+			case "July":
+				$birthdate = "0000-07-".$split_dob[1];
+				break;
+			case "August":
+				$birthdate = "0000-08-".$split_dob[1];
+				break;
+			case "September":
+				$birthdate = "0000-09-".$split_dob[1];
+				break;
+			case "October":
+				$birthdate = "0000-10-".$split_dob[1];
+				break;
+			case "November":
+				$birthdate = "0000-11-".$split_dob[1];
+				break;
+			case "December":
+				$birthdate = "0000-12-".$split_dob[1];
+				break;
+		}
     if($isUser){
         //update the user
         echo "is user";
     }else{
         //add user
-        $returned = addUser($user_id, $name, $surname, $email, $image, $dob, $department);
+        $returned = addUser($user_id, $name, $surname, $email, $image, $birthdate, $department);
         //echo $returned;
     }
     header('Location: /bbdcom/dashboard.php');
