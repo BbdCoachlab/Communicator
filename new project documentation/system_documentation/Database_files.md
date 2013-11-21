@@ -1,7 +1,7 @@
 #Database#
 #
 ##connectionScript.php##
-This code is to allow connection to the database.
+This code is to allow connection to the database and the server.
 ##Department_UserScript.php##
 This scripts is used to link the department list and the users.
 ##NominneScript.php##
