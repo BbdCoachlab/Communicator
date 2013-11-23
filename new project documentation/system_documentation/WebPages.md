@@ -19,7 +19,28 @@ This code is to display the buttons to navigate to the Birthdays, nominations an
 - images/bday2.jpg
 - images/award2.jpg
 - images/event2.jpg
-###Php Script###
+
+
+##Birthdays.php##
+Description:
+This code makes the form for birthdays for the web application.
+###Includes and requires###
+- scripts/check\_logged_in.php
+- menu.php
+- scripts/department_list.php
+- scripts/db/connectionScript.php
+- scripts/db/DepartmentScript.php
+- scripts/db/UserScript.php
+- scripts/db/Department_UserScript.php
+- scripts/birthday_list.php
+- scripts/check\_message_success.php
+
+
+###Javascripts###
+- js/jquery.js
+- js/jquery_validation.js
+- js/basic\_form_validation.js
+- js/style_script.js
 
 
 
@@ -38,26 +59,6 @@ This code makes the form for events for the web application with the questionair
 ###Javascripts###
  - js/jquery.js
  - js/jquery_validation.js
-
-
-##Birthdays.php##
-Description:
-This code makes the form for birthdays for the web application.
-###Includes and requires###
-- scripts/check\_logged_in.php
-- menu.php
-- scripts/department_list.php
-- scripts/check\_message_success.php
-- scripts/db/connectionScript.php
-- scripts/db/DepartmentScript.php
-- scripts/db/UserScript.php
-- scripts/db/Department_UserScript.php
-
-###Javascripts###
-- js/jquery.js
-- js/jquery_validation.js
-- js/basic\_form_validation.js
-- js/style_script.js
 
 
 ##Awards.php##
